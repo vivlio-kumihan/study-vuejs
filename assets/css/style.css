@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.7;
+  color: #555;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 900px;
+  height: 60vh;
+  font-family: 'Potta One', cursive;
+  font-size: 2rem;
+}
