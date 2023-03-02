@@ -17,6 +17,8 @@ body {
 
   max-width: 900px;
   height: 60vh;
-  font-family: 'Potta One', cursive;
-  font-size: 2rem;
+  margin: 0 auto;
+  font-family: 'Rubik Dirt', cursive;
+  font-size: 5rem;
+  text-transform: uppercase;
 }
