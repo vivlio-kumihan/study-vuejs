@@ -16,9 +16,16 @@ body {
   align-items: center;
 
   max-width: 900px;
-  height: 60vh;
+  height: 100vh;
   margin: 0 auto;
   font-family: 'Rubik Dirt', cursive;
-  font-size: 5rem;
+  font-size: 3rem;
   text-transform: uppercase;
+}
+
+input {
+  display: block;
+  padding: 1rem 2rem;
+  background-color: #eee;
+  border-radius: .5rem;
 }
