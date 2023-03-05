@@ -1,15 +1,13 @@
 Vue.createApp({
-    data: () => {
+    data: function() {
         return {
-            message: "hello, vue!",
-            url: "https://kumihan.com",
-            flag: false
+            email: "vivlio@kumihan.com"
+        }
+    },
+    computed: {
+        localEmail: function() {
+            const str = this.email.split("@")[0]
+            return str.codePointAt(0).toString(16)
         }
     }
-}).mount("#app")
-
-const input = document.querySelector("input")
-input.addEventListener("click", () => {
-    const outPut = document.querySelector("dd")
-    outPut.textContent = "hello, world!"
-})
+}).mount("#app");

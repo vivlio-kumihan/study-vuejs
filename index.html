@@ -17,22 +17,7 @@
 <body>
   <div id="container">
     <div id="app">
-      <!-- Mustache構文 -->
-      <p>{{ message }}</p>
-      <!-- 以下、ディレクティブ -->
-      <!-- Mustache構文と同じように変数を展開する。 -->
-      <p v-text="message"></p>
-      <!-- Mustache構文を無効化する。変数展開させない。 -->
-      <p v-pre>{{ message }}</p>
-      <!-- 属性に変数を展開させるv-vind -->
-      <a v-bind:href="url" target="_blank">new project</a>
-      <dl>
-        <dt>
-          <!-- ブール（boolean）属性をJSで制御する。checked, selected, disabled etc... -->
-          <input type="button" value="click" v-bind:disabled="flag">
-        </dt>
-        <dd></dd>
-      </dl>   
+      <p>{{ localEmail }}</p>
     </div>
   </div>
 </body>
