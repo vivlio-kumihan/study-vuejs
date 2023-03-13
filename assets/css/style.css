@@ -16,8 +16,14 @@ body {
   align-items: center;
 
   max-width: 900px;
-  height: 100vh;
+  height: 80vh;
   margin: 0 auto;
+
   font-family: 'Rubik Dirt', cursive;
   font-size: 3rem;
+  text-align: center;
+}
+
+img {
+  width: 30rem;
 }
