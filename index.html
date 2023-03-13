@@ -17,8 +17,8 @@
 <body>
   <div id="container">
     <div id="app">
-      <button v-on:click="onclick">now on click</button>
-      <p>{{ localTime }}</p>
+      <img v-bind:src="path" alt="bird's photo"
+      v-on:mouseenter="onmouseenter" v-on:mouseleave="onmouseleave" v-on:error="onerror" />
     </div>
   </div>
 </body>

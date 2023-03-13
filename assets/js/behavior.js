@@ -1,12 +1,18 @@
-Vue.createApp ({
+Vue.createApp({
   data() {
     return {
-      localTime: ""
+      path: "./assets/img/cover.jpg"
     }
   },
   methods: {
-    onclick() {
-      this.localTime = new Date().toLocaleDateString()
+    onmouseenter() {
+      this.path = "./assets/img/p1.jpg"
+    },
+    onmouseleave() {
+      this.path = "./assets/img/p2.jpg"
+    },
+    onerror() {
+      this.path = "./assets/img/p3.jpg"
     }
   }
 }).mount("#app")
