@@ -1,18 +1,15 @@
 Vue.createApp({
   data() {
     return {
-      path: "./assets/img/cover.jpg"
+      result: ""
     }
   },
   methods: {
-    onmouseenter() {
-      this.path = "./assets/img/p1.jpg"
+    onmousein(e) {
+      this.result += `Enter: ${e.target.id}<br/>`
     },
-    onmouseleave() {
-      this.path = "./assets/img/p2.jpg"
-    },
-    onerror() {
-      this.path = "./assets/img/p3.jpg"
+    onmouseout(e) {
+      this.result += `Leave: ${e.target.id}<br/>`
     }
   }
 }).mount("#app")
