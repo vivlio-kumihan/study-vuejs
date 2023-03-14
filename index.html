@@ -15,16 +15,10 @@
 
 </head>
 <body>
+  <!-- #1 クリックして『イベント』を取得する。 -->
   <div id="container">
     <div id="app">
-      <!-- mouseenter <=> mouseover, mouseleave <=> mouseout
-        　 ディレクティブの引数（動詞みたい）の違いが挙動を変える。 -->
-      <div id="outer" v-on:mouseenter="onmousein" v-on:mouseleave="onmouseout">
-      <!-- <div id="outer" v-on:mouseover="onmousein" v-on:mouseout="onmouseout"> -->
-        outer
-        <p id="inner">inner</p>
-      </div>
-      <div class="" v-html="result"></div>
+      <button v-on:click="onclick">click here</button>
     </div>
   </div>
 </body>

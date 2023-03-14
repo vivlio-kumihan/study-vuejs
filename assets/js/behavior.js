@@ -1,15 +1,8 @@
+// #1 クリックして『イベント』を取得する。
 Vue.createApp({
-  data() {
-    return {
-      result: ""
-    }
-  },
   methods: {
-    onmousein(e) {
-      this.result += `Enter: ${e.target.id}<br/>`
-    },
-    onmouseout(e) {
-      this.result += `Leave: ${e.target.id}<br/>`
+    onclick(e) {
+      console.log(e)
     }
   }
 }).mount("#app")

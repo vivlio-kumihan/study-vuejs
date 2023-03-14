@@ -24,26 +24,17 @@ body {
   text-align: center;
 }
 
-#outer {
-  position: relative;
-  width: 20rem;
-  height: 20rem;
-  padding-top: 1rem;
-  background-color: #eee;
+button {
+  padding: 1rem;
+  background-color: orange;
+  border-radius: .3rem;
+  transition: .5s;
 }
 
-#inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 10rem;
-  height: 10rem;
-  color: #fff;
-  background-color: #555;
+button:hover {
+  color: rgb(159, 126, 63);
+  background-color: rgb(249, 186, 68);
+  transform: translateY(-0.2rem);
+  opacity: .5;
+  box-shadow: 0px 1px 3px #555;
 }
