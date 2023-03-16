@@ -10,7 +10,7 @@ body {
   color: #555;
 }
 
-#container {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,22 +19,36 @@ body {
   height: 80vh;
   margin: 0 auto;
 
-  font-family: 'Rubik Dirt', cursive;
-  font-size: 2rem;
-  text-align: center;
+  /* font-family: 'Rubik Dirt', cursive; */
+  font-size: 1.5rem;
+  /* text-align: center; */
 }
 
-button {
-  padding: 1rem;
-  background-color: orange;
-  border-radius: .3rem;
-  transition: .5s;
+#app {
+  padding: 2rem;
+  background-color: #eee;
+}
+.row {
+  width: 30rem;
+  padding: 2rem;
+  background-color: #fff;
+}
+.one, .two, .three, .four {
+  position: relative;
 }
 
-button:hover {
-  color: rgb(159, 126, 63);
-  background-color: rgb(249, 186, 68);
-  transform: translateY(-0.2rem);
-  opacity: .5;
-  box-shadow: 0px 1px 3px #555;
+#app dt,
+#app dd {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#app dt {
+  left: 1.5rem;
+  text-transform: uppercase;
+
+
+}
+#app dd {
+  left: 6em;
 }

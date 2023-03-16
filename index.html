@@ -15,10 +15,27 @@
 
 </head>
 <body>
-  <!-- #1 クリックして『イベント』を取得する。 -->
-  <div id="container">
+  <!-- #2 画面上、ポインターの位置を取得してみる -->
+  <div class="container">
     <div id="app">
-      <button v-on:click="onclick">click here</button>
+      <dl v-on:mousemove="onmousemove">
+        <div class="row one">
+          <dt>screen:</dt>
+          <dd>{{ screenX }} / {{ screenY }}</dd>
+        </div>
+        <div class="row two">
+          <dt>page:</dt>
+          <dd>{{ pageX }} / {{ pageY }}</dd>
+        </div>
+        <div class="row three">
+          <dt>client:</dt>
+          <dd>{{ clientX }} / {{ clientY }}</dd>
+        </div>
+        <div class="row four">
+          <dt>offset:</dt>
+          <dd>{{ offsetX }} / {{ offsetY }}</dd>
+        </div>
+      </dl>
     </div>
   </div>
 </body>
