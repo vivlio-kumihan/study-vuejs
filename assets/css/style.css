@@ -18,37 +18,39 @@ body {
   max-width: 900px;
   height: 80vh;
   margin: 0 auto;
-
-  /* font-family: 'Rubik Dirt', cursive; */
-  font-size: 1.5rem;
-  /* text-align: center; */
+  font-size: 1.2rem;
 }
 
 #app {
-  padding: 2rem;
+  width: 100%;
   background-color: #eee;
+  border-radius: .3rem;
 }
+
+#app dl {
+  padding: 1rem;
+}
+
 .row {
-  width: 30rem;
-  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  margin-bottom: .5rem;
+  padding: 1rem;
   background-color: #fff;
 }
-.one, .two, .three, .four {
-  position: relative;
+
+.row > dt {
+  flex: 1;
+  text-align: right;
 }
 
-#app dt,
-#app dd {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.row > dd {
+  flex: 9;
 }
-#app dt {
-  left: 1.5rem;
-  text-transform: uppercase;
 
-
-}
-#app dd {
-  left: 6em;
+input {
+  padding: .5rem 1rem;
+  width: 100%;
 }

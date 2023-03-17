@@ -15,27 +15,17 @@
 
 </head>
 <body>
-  <!-- #2 画面上、ポインターの位置を取得してみる -->
   <div class="container">
     <div id="app">
-      <dl v-on:mousemove="onmousemove">
-        <div class="row one">
-          <dt>screen:</dt>
-          <dd>{{ screenX }} / {{ screenY }}</dd>
-        </div>
-        <div class="row two">
-          <dt>page:</dt>
-          <dd>{{ pageX }} / {{ pageY }}</dd>
-        </div>
-        <div class="row three">
-          <dt>client:</dt>
-          <dd>{{ clientX }} / {{ clientY }}</dd>
-        </div>
-        <div class="row four">
-          <dt>offset:</dt>
-          <dd>{{ offsetX }} / {{ offsetY }}</dd>
-        </div>
-      </dl>
+      <form action="" method="post">
+        <dl>
+          <div class="row">
+            <dt><label for="name">入力：</label></dt>
+            <dd><input type="text" id="name" v-model="myName"></dd>
+          </div>
+          <p>入力が同時に出力されます。=> {{ myName }}</p>
+        </dl>
+      </form>
     </div>
   </div>
 </body>
