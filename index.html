@@ -19,11 +19,21 @@
     <div id="app">
       <form action="" method="post">
         <dl>
-          <div class="row">
-            <dt><label for="name">入力：</label></dt>
-            <dd><input type="text" id="name" v-model="myName"></dd>
+          <div class="unity">
+            <dt><label for="dog">犬</label></dt>
+            <dd><input type="radio" id="dog" value="犬" v-model="pet"></dd>
           </div>
-          <p>入力が同時に出力されます。=> {{ myName }}</p>
+          <div class="unity">
+            <dt><label for="cat">猫</label></dt>
+            <dd><input type="radio" id="cat" value="猫" v-model="pet"></dd>
+          </div>
+          <div class="unity">
+            <dt><label for="other">その他</label></dt>
+            <dd><input type="radio" id="other" value="その他" v-model="pet"></dd>
+          </div>
+          <div class="unity">
+            <p>{{ pet }}</p>
+          </div>
         </dl>
       </form>
     </div>

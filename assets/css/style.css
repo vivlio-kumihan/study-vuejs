@@ -23,34 +23,50 @@ body {
 
 #app {
   width: 100%;
+  padding: 2rem;
   background-color: #eee;
   border-radius: .3rem;
 }
 
-#app dl {
-  padding: 1rem;
+form {
+  width: 100%;
 }
-
-.row {
+.unity {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex: 1;
 
-  margin-bottom: .5rem;
-  padding: 1rem;
-  background-color: #fff;
+  margin: 0 auto;
+  width: 15rem;
 }
 
-.row > dt {
-  flex: 1;
+dt {
+  width: 100%;
+}
+
+label {
+  display: block;
   text-align: right;
 }
 
-.row > dd {
-  flex: 9;
+dt {
+  flex: 1.25;
 }
 
-input {
-  padding: .5rem 1rem;
+dd {
+  flex: 1;
+}
+
+dt {
+  padding-right: 1rem;
+}
+
+p {
+  margin-top: 1rem;
+  padding: 1rem;
   width: 100%;
+  /* font-size: 1rem; */
+  font-weight: 900;
+  text-align: center;
+  background-color: #fff;
 }

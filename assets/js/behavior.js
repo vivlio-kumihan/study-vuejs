@@ -1,7 +1,7 @@
 Vue.createApp({
   data() {
     return {
-      myName: ""
+      pet: "選択したのは..."
     }
   }
 }).mount("#app")
