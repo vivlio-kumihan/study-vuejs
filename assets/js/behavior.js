@@ -1,7 +1,9 @@
 Vue.createApp({
   data() {
     return {
-      pet: "選択したのは..."
+      pet: "選択したのは...",
+      agree: true,
+      application: [],
     }
   }
 }).mount("#app")

@@ -19,21 +19,62 @@
     <div id="app">
       <form action="" method="post">
         <dl>
-          <div class="unity">
-            <dt><label for="dog">犬</label></dt>
-            <dd><input type="radio" id="dog" value="犬" v-model="pet"></dd>
-          </div>
-          <div class="unity">
-            <dt><label for="cat">猫</label></dt>
-            <dd><input type="radio" id="cat" value="猫" v-model="pet"></dd>
-          </div>
-          <div class="unity">
-            <dt><label for="other">その他</label></dt>
-            <dd><input type="radio" id="other" value="その他" v-model="pet"></dd>
-          </div>
-          <div class="unity">
+          <dt>radio button</dt>
+          <dd>
+            <ul>
+              <li>
+                <input type="radio" id="dog" value="犬" v-model="pet">
+                <label for="dog">犬</label>
+              </li>
+              <li>
+                <input type="radio" id="cat" value="猫" v-model="pet">
+                <label for="cat">猫</label>
+              </li>
+              <li>
+                <input type="radio" id="other" value="その他" v-model="pet">
+                <label for="other">その他</label>
+              </li>
+              <li>
+              </li>
+            </ul>
             <p>{{ pet }}</p>
-          </div>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>check box [single]</dt>
+          <dd>
+            <ul>
+              <li>
+                <!-- <input type="checkbox" id="agree" v-model="agree"> -->
+                <input type="checkbox" id="agree" v-model="agree"
+                        true-value="同意する" false-value="同意しない">
+                <label for="agree">同意する</label>
+              </li>
+            </ul>
+            <p>{{ agree }}</p>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>check box [multiple]</dt>
+          <dd>
+            <ul>
+              <li>
+                <input type="checkbox" id="javascript" value="JavaScript" v-model="application">
+                <label for="javascript">JavaScript</label>
+              </li>
+              <li>
+                <input type="checkbox" id="php" value="PHP" v-model="application">
+                <label for="php">PHP</label>
+              </li>
+              <li>
+                <input type="checkbox" id="css" value="CSS" v-model="application">
+                <label for="css">CSS</label>
+              </li>
+            </ul>
+            <p>{{ application }}</p>
+          </dd>
         </dl>
       </form>
     </div>

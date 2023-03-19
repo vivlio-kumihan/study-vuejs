@@ -2,6 +2,61 @@
 
 html {
   font-size: 15px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+dl {
+  padding: 2rem;
+  background-color: #eee;
+  border-radius: .3rem;
+}
+
+dt {
+  margin-bottom: .7rem;
+  text-transform: uppercase;
+}
+
+dt:not(:first-of-type) {
+  margin-top: 1.5rem;
+}
+
+dd {
+  width: 15rem;
+}
+
+li:not(:first-of-type) {
+  margin-top: .5rem;
+}
+
+label {
+  margin-left: .2rem;
+}
+
+dd > p {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  font-weight: 900;
+  line-height: 1.5;
+  border-top: 1px dotted #333;
+}
+
+
+/* @charset "UTF-8";
+
+html {
+  font-size: 15px;
 }
 
 body {
@@ -69,4 +124,4 @@ p {
   font-weight: 900;
   text-align: center;
   background-color: #fff;
-}
+} */
