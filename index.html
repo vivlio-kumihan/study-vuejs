@@ -76,8 +76,29 @@
             <p>{{ application }}</p>
           </dd>
         </dl>
+        
+        <dl>
+          <dt>
+            <label for="os">使用しているOSは？</label>
+          </dt>
+          <dd>
+            <select name="" id="os" v-model="os" multiple size="4">
+              <option value="">OSを選択してください。</option>
+              <option>Windows</option>
+              <option>Linux</option>
+              <option>Mac</option>
+            </select>
+          </dd>
+          <dd>
+            <p>回答：{{ os }}</p>
+          </dd>
+        </dl>
       </form>
     </div>
   </div>
 </body>
 </html>
+
+        
+        
+        os: ["Windows"]

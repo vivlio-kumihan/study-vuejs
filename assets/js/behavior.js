@@ -4,6 +4,7 @@ Vue.createApp({
       pet: "選択したのは...",
       agree: true,
       application: [],
+      os: ["Windows"]
     }
   }
 }).mount("#app")
