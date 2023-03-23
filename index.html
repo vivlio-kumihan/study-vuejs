@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,93 +13,72 @@
   <script src="https://kit.fontawesome.com/678cad97f5.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="./assets/js/behavior.js" defer></script>
+  <script src="./assets/js/js-behavior.js" defer></script>
 
 </head>
+
 <body>
   <div class="container">
     <div id="app">
-      <form action="" method="post">
+      <form id="pet" action="" method="post">
         <dl>
-          <dt>radio button</dt>
+          <dt>ペットを飼っていますか？</dt>
           <dd>
-            <ul>
-              <li>
-                <input type="radio" id="dog" value="犬" v-model="pet">
-                <label for="dog">犬</label>
-              </li>
-              <li>
-                <input type="radio" id="cat" value="猫" v-model="pet">
-                <label for="cat">猫</label>
-              </li>
-              <li>
-                <input type="radio" id="other" value="その他" v-model="pet">
-                <label for="other">その他</label>
-              </li>
-              <li>
-              </li>
-            </ul>
-            <p>{{ pet }}</p>
+            <input type="radio" id="dog" value="犬" v-model="pet">
+            <label for="dog">犬</label>
+          </dd>
+          <dd>
+            <input type="radio" id="cat" value="猫" v-model="pet">
+            <label for="cat">猫</label>
+          </dd>
+          <dd>
+            <input type="radio" id="other" value="その他" v-model="pet">
+            <label for="other">その他</label>
           </dd>
         </dl>
+        <p>{{ pet }}</p>
+      </form>
 
+      <form action="" id="food" method="post">
         <dl>
-          <dt>check box [single]</dt>
+          <dt>この中で好きな食べ物はなんですか？</dt>
           <dd>
-            <ul>
-              <li>
-                <!-- <input type="checkbox" id="agree" v-model="agree"> -->
-                <input type="checkbox" id="agree" v-model="agree"
-                        true-value="同意する" false-value="同意しない">
-                <label for="agree">同意する</label>
-              </li>
-            </ul>
-            <p>{{ agree }}</p>
+            <input type="radio" id="ramen" value="ラーメン" v-model="food">
+            <label for="ramen">ラーメン</label>
+          </dd>
+          <dd>
+            <input type="radio" id="gyoza" value="餃子" v-model="food">
+            <label for="gyoza">餃子</label>
+          </dd>
+          <dd>
+            <input type="radio" id="barbecue" value="焼肉" v-model="food">
+            <label for="barbecue">焼肉</label>
           </dd>
         </dl>
+        <p>{{ food }}</p>
+      </form>
 
+      <form action="" id="elective-subject" method="post">
         <dl>
-          <dt>check box [multiple]</dt>
+          <dt>科目を選択してください。</dt>
           <dd>
-            <ul>
-              <li>
-                <input type="checkbox" id="javascript" value="JavaScript" v-model="application">
-                <label for="javascript">JavaScript</label>
-              </li>
-              <li>
-                <input type="checkbox" id="php" value="PHP" v-model="application">
-                <label for="php">PHP</label>
-              </li>
-              <li>
-                <input type="checkbox" id="css" value="CSS" v-model="application">
-                <label for="css">CSS</label>
-              </li>
-            </ul>
-            <p>{{ application }}</p>
+            <input type="radio" id="js" value="JavaScript" name="subject">
+            <label for="js">JavaScript</label>
+          </dd>
+          <dd>
+            <input type="radio" id="php" value="PHP" name="subject">
+            <label for="php">PHP</label>
+          </dd>
+          <dd>
+            <input type="radio" id="perl" value="Perl" name="subject">
+            <label for="perl">Perl</label>
           </dd>
         </dl>
-        
-        <dl>
-          <dt>
-            <label for="os">使用しているOSは？</label>
-          </dt>
-          <dd>
-            <select name="" id="os" v-model="os" multiple size="4">
-              <option value="">OSを選択してください。</option>
-              <option>Windows</option>
-              <option>Linux</option>
-              <option>Mac</option>
-            </select>
-          </dd>
-          <dd>
-            <p>回答：{{ os }}</p>
-          </dd>
-        </dl>
+        <input type="button" id="btn" value="送信">
+        <p id="for-js">選択したのは...</p>
       </form>
     </div>
   </div>
 </body>
-</html>
 
-        
-        
-        os: ["Windows"]
+</html>
