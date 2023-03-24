@@ -11,98 +11,72 @@ body {
 }
 
 .container {
-  max-width: 20rem;
+  max-width: 900px;
   margin: 5rem auto;
   padding: 1rem;
   background-color: #eee;
   border-radius: .3rem;
 }
 
-form:not(:first-of-type) {
-  margin-top: 1rem;
+.unit:not(:first-of-type) {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-top: 1px dotted #333;
+  
+}
+dl {
+  width: 40%;
+  margin: 0 auto;
 }
 
-form dl {
-  text-align: center;
+dl:not(:first-of-type) {
+  margin-top: 2rem;
 }
 
-form dd {
-  display: inline-block;
+.select-wrapper {
+  position: relative;
+  margin: .5rem 0 1rem;
 }
 
-form dd:not(:first-of-type) {
-  margin-left: 2rem;
-}
+.select-wrapper.single::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
 
-p {
-  margin-top: .5rem;
-  padding: .5rem 1rem;
+  content: "\f13a";
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  text-align: center;
-  background-color: #fff;
-  border-radius: .3rem;
+  font-size: 1.5rem;
+  pointer-events: none;
 }
 
-button#send-subject {
-  width: 100%;
-  margin-top: 1rem;
-  padding: .5rem 1rem;
-  text-align: center;
-  color: #fff;
-  background-color: #777;
-  border-radius: .3rem;
-}
-
-form input {
-  display: none;
-}
-
-form > #btn {
+select {
   display: block;
   width: 100%;
-  margin-top: .5rem;
   padding: .5rem 1rem;
-  text-align: center;
-  font-weight: 900;
-  color: #fff;
-  background-color: #555;
+  font-weight: 700;
+  background-color: #fff;
   border-radius: .3rem;
 }
 
-form label {
-  position: relative;
-  padding-left: 1.25em;
+select:focus-visible {
+  outline: none;
 }
 
-#elective-subject {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px dotted #777;
+.result {
+  text-align: center;
+  padding: .5rem;
+  font-size: .9rem;
+  font-weight: 700;
+  background-color: #ddd;
+  border-radius: .3rem;
 }
 
-input[type="radio"]+label::before,
-input[type="radio"]:checked+label::after {
-  position: absolute;
-  content: "";
-  transition: .3s;
-}
-
-input[type="radio"]+label::before {
-  top: 50%;
-  transform: translateY(-45%);
-  left: 0;
-  width: 1em;
-  height: 1em;
-  background-color: #777;
-  border-radius: 50%;
-}
-
-input[type="radio"]:checked+label::after {
-  top: 50%;
-  transform: translateY(-45%);
-  left: calc(1.25em / 4.75);
-  width: .5em;
-  height: .5em;
+.result > input {
+  width: 80%;
+  margin: .5rem;
+  padding: .2rem;
   background-color: #fff;
-  border-radius: 50%;
+  border-radius: .3rem;
 }

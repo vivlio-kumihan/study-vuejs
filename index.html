@@ -13,69 +13,114 @@
   <script src="https://kit.fontawesome.com/678cad97f5.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="./assets/js/behavior.js" defer></script>
-  <script src="./assets/js/js-behavior.js" defer></script>
-
 </head>
 
 <body>
   <div class="container">
-    <div id="app">
-      <form id="pet" action="" method="post">
-        <dl>
-          <dt>ペットを飼っていますか？</dt>
-          <dd>
-            <input type="radio" id="dog" value="犬" v-model="pet">
-            <label for="dog">犬</label>
-          </dd>
-          <dd>
-            <input type="radio" id="cat" value="猫" v-model="pet">
-            <label for="cat">猫</label>
-          </dd>
-          <dd>
-            <input type="radio" id="other" value="その他" v-model="pet">
-            <label for="other">その他</label>
-          </dd>
-        </dl>
-        <p>{{ pet }}</p>
-      </form>
 
-      <form action="" id="food" method="post">
-        <dl>
-          <dt>この中で好きな食べ物はなんですか？</dt>
-          <dd>
-            <input type="radio" id="ramen" value="ラーメン" v-model="food">
-            <label for="ramen">ラーメン</label>
-          </dd>
-          <dd>
-            <input type="radio" id="gyoza" value="餃子" v-model="food">
-            <label for="gyoza">餃子</label>
-          </dd>
-          <dd>
-            <input type="radio" id="barbecue" value="焼肉" v-model="food">
-            <label for="barbecue">焼肉</label>
-          </dd>
-        </dl>
-        <p>{{ food }}</p>
-      </form>
 
-      <form action="" id="elective-subject" method="post">
+    <div id="app" class="unit">
+      <form action="" method="post">
         <dl>
-          <dt>科目を選択してください。</dt>
-          <dd>
-            <input type="radio" id="js" value="JavaScript" name="subject">
-            <label for="js">JavaScript</label>
+          <dt>
+            <label for="lang">教科を選択</label>
+          </dt>
+          <dd class="select-wrapper single">
+            <select name="" id="lang" v-model="lang">
+              <option value="select" selected disabled>1つ選択してください。</option>
+              <optgroup label="front-end">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+              </optgroup>
+              <optgroup label="back-end">
+                <option value="PHP">PHP</option>
+                <option value="Node.js">Node.js</option>
+                <option value="Ruby">Ruby</option>
+              </optgroup>
+            </select>
           </dd>
-          <dd>
-            <input type="radio" id="php" value="PHP" name="subject">
-            <label for="php">PHP</label>
-          </dd>
-          <dd>
-            <input type="radio" id="perl" value="Perl" name="subject">
-            <label for="perl">Perl</label>
+          <dd class="result">
+            <p>{{ lang }}</p>
           </dd>
         </dl>
-        <input type="button" id="btn" value="送信">
-        <p id="for-js">選択したのは...</p>
+
+        <dl>
+          <dt>
+            <label for="lang">教科を選択</label>
+          </dt>
+          <dd class="select-wrapper">
+            <select name="" id="lang" v-model="application" multiple size="9">
+              <option value="select" selected disabled>複数選択可能です。</option>
+              <optgroup label="front-end">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+              </optgroup>
+              <optgroup label="back-end">
+                <option value="PHP">PHP</option>
+                <option value="Node.js">Node.js</option>
+                <option value="Ruby">Ruby</option>
+              </optgroup>
+            </select>
+          </dd>
+          <dd class="result">
+            <p>{{ application }}</p>
+          </dd>
+        </dl>
+      </form>
+    </div>
+
+    <div id="case-js" class="unit">
+      <form action="" method="post">
+        <dl>
+          <dt>
+            <label for="lang">教科を選択</label>
+          </dt>
+          <dd class="select-wrapper single">
+            <select id="lang" class="apply" name="lang">
+              <optgroup label="front-end">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+              </optgroup>
+              <optgroup label="back-end">
+                <option value="PHP">PHP</option>
+                <option value="Node.js">Node.js</option>
+                <option value="Ruby">Ruby</option>
+              </optgroup>
+            </select>
+          </dd>
+          <dd class="result single">
+            <input type="button" value="送信">
+            <p>選択したものは...</p>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>
+            <label for="lang">教科を選択</label>
+          </dt>
+          <dd class="select-wrapper">
+            <select name="" id="lang" class="os" multiple size="9">
+              <option value="select" selected disabled>複数選択可能です。</option>
+              <optgroup label="front-end">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+              </optgroup>
+              <optgroup label="back-end">
+                <option value="PHP">PHP</option>
+                <option value="Node.js">Node.js</option>
+                <option value="Ruby">Ruby</option>
+              </optgroup>
+            </select>
+          </dd>
+          <dd class="result multiple">
+            <input type="button" value="送信">
+            <p>選択したものは...</p>
+          </dd>
+        </dl>
       </form>
     </div>
   </div>

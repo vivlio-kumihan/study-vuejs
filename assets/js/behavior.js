@@ -2,29 +2,45 @@
 Vue.createApp({
   data() {
     return {
-      pet: "選択したのは...",
-      food: "選択したのは...",
-      subject: "選択したのは..."
+      lang: "選択はしたものは...",
+      application: []
     }
   }
 }).mount("#app")
 
 // js
-function getRadioValue(name) {
+// for single
+function getSelectValue(name) {
   let result = ""
-  let elements = document.querySelectorAll(`input[name="${name}"]`)
-  for (let elem of elements) {
-    if (elem.checked) {
-      result = elem.value
+  let options = document.querySelector(name).options
+
+  for(let opt of options) {
+    if(opt.selected) {
+      result = opt.value
       break
     }
   }
   return result
 }
 
-document.querySelector("#btn").addEventListener("click", function () {
-  document.querySelector("#for-js").textContent = getRadioValue("subject")
-  console.log(getRadioValue("subject"))
-}, false);
+document.querySelector(".result.single > input").addEventListener("click", function() {
+  document.querySelector("#case-js .result.single > p").textContent = getSelectValue("#case-js #lang.apply")
+})
 
-  
+// for multipul
+function getSelectValueArr(name) {
+  let result = []
+  let options = document.querySelector(name).options;
+
+  for(let opt of options) {
+    if(opt.selected) {
+      result.push(opt.value)
+    }
+  }
+  return result
+}
+
+document.querySelector(".result.multiple > input").addEventListener("click", function() {
+  const reply = getSelectValueArr("#case-js #lang.os").join("・")
+  document.querySelector("#case-js .result.multiple > p").textContent = reply
+}, false)
