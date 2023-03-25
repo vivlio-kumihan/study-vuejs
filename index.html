@@ -17,112 +17,75 @@
 
 <body>
   <div class="container">
-
-
-    <div id="app" class="unit">
+    <div id="app">
       <form action="" method="post">
-        <dl>
-          <dt>
-            <label for="lang">教科を選択</label>
-          </dt>
-          <dd class="select-wrapper single">
-            <select name="" id="lang" v-model="lang">
-              <option value="select" selected disabled>1つ選択してください。</option>
-              <optgroup label="front-end">
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="JavaScript">JavaScript</option>
-              </optgroup>
-              <optgroup label="back-end">
-                <option value="PHP">PHP</option>
-                <option value="Node.js">Node.js</option>
-                <option value="Ruby">Ruby</option>
-              </optgroup>
-            </select>
+        <dl class="single">
+          <dt>check box [single]</dt>
+          <dd>
+            <input type="checkbox" id="agree" v-model="agree" true-value="チェックしました。" false-value="チェックしてません。">
+            <label for="agree">同意する</label>
           </dd>
-          <dd class="result">
-            <p>{{ lang }}</p>
+          <dd class="reply">
+            <p>{{ agree }}</p>
           </dd>
         </dl>
-
-        <dl>
-          <dt>
-            <label for="lang">教科を選択</label>
-          </dt>
-          <dd class="select-wrapper">
-            <select name="" id="lang" v-model="application" multiple size="9">
-              <option value="select" selected disabled>複数選択可能です。</option>
-              <optgroup label="front-end">
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="JavaScript">JavaScript</option>
-              </optgroup>
-              <optgroup label="back-end">
-                <option value="PHP">PHP</option>
-                <option value="Node.js">Node.js</option>
-                <option value="Ruby">Ruby</option>
-              </optgroup>
-            </select>
+        
+        <dl class="multiple">
+          <dt>check box [multiple]</dt>
+          <dd>
+            <input type="checkbox" id="javascript" value="JavaScript" v-model="application">
+            <label for="javascript">JavaScript</label>
           </dd>
-          <dd class="result">
+          <dd>
+            <input type="checkbox" id="php" value="PHP" v-model="application">
+            <label for="php">PHP</label>
+          </dd>
+          <dd>
+            <input type="checkbox" id="css" value="CSS" v-model="application">
+            <label for="css">CSS</label>
+          </dd>
+          <dd class="reply">
             <p>{{ application }}</p>
           </dd>
         </dl>
       </form>
     </div>
 
-    <div id="case-js" class="unit">
+    <!-- <div id="vanilla-js">
       <form action="" method="post">
-        <dl>
-          <dt>
-            <label for="lang">教科を選択</label>
-          </dt>
-          <dd class="select-wrapper single">
-            <select id="lang" class="apply" name="lang">
-              <optgroup label="front-end">
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="JavaScript">JavaScript</option>
-              </optgroup>
-              <optgroup label="back-end">
-                <option value="PHP">PHP</option>
-                <option value="Node.js">Node.js</option>
-                <option value="Ruby">Ruby</option>
-              </optgroup>
-            </select>
+        <dl class="single">
+          <dt>ニュースの配信を希望されますか？</dt>
+          <dd>
+            <input type="checkbox" id="yes" value="ニュース配信希望">
+            <label for="yes">同意する</label>
           </dd>
-          <dd class="result single">
-            <input type="button" value="送信">
-            <p>選択したものは...</p>
+          <dd class="reply btn">送信</dd>
+          <dd class="reply">
+            回答
           </dd>
         </dl>
-
-        <dl>
-          <dt>
-            <label for="lang">教科を選択</label>
-          </dt>
-          <dd class="select-wrapper">
-            <select name="" id="lang" class="os" multiple size="9">
-              <option value="select" selected disabled>複数選択可能です。</option>
-              <optgroup label="front-end">
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSS</option>
-                <option value="JavaScript">JavaScript</option>
-              </optgroup>
-              <optgroup label="back-end">
-                <option value="PHP">PHP</option>
-                <option value="Node.js">Node.js</option>
-                <option value="Ruby">Ruby</option>
-              </optgroup>
-            </select>
+        
+        <dl class="multiple">
+          <dt>選択科目にチェックをしてください。</dt>
+          <dd>
+            <input type="checkbox" id="js" value="JavaScript" name="study">
+            <label for="js">JavaScript</label>
           </dd>
-          <dd class="result multiple">
-            <input type="button" value="送信">
-            <p>選択したものは...</p>
+          <dd>
+            <input type="checkbox" id="ruby" value="Ruby" name="study">
+            <label for="ruby">Ruby</label>
+          </dd>
+          <dd>
+            <input type="checkbox" id="python" value="Python" name="study">
+            <label for="python">Python</label>
+          </dd>
+          <dd class="reply btn">送信</dd>
+          <dd class="reply">
+            <p>選択したもの</p>
           </dd>
         </dl>
       </form>
-    </div>
+    </div> -->
   </div>
 </body>
 
