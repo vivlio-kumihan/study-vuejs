@@ -18,74 +18,10 @@
 <body>
   <div class="container">
     <div id="app">
-      <form action="" method="post">
-        <dl class="single">
-          <dt>check box [single]</dt>
-          <dd>
-            <input type="checkbox" id="agree" v-model="agree" true-value="チェックしました。" false-value="チェックしてません。">
-            <label for="agree">同意する</label>
-          </dd>
-          <dd class="reply">
-            <p>{{ agree }}</p>
-          </dd>
-        </dl>
-        
-        <dl class="multiple">
-          <dt>check box [multiple]</dt>
-          <dd>
-            <input type="checkbox" id="javascript" value="JavaScript" v-model="application">
-            <label for="javascript">JavaScript</label>
-          </dd>
-          <dd>
-            <input type="checkbox" id="php" value="PHP" v-model="application">
-            <label for="php">PHP</label>
-          </dd>
-          <dd>
-            <input type="checkbox" id="css" value="CSS" v-model="application">
-            <label for="css">CSS</label>
-          </dd>
-          <dd class="reply">
-            <p>{{ application }}</p>
-          </dd>
-        </dl>
-      </form>
+      <p>{{ str }}</p>
+      <p>{{ toStringOne }}</p>
+      <p>{{ toStringTwo() }}</p>
     </div>
-
-    <!-- <div id="vanilla-js">
-      <form action="" method="post">
-        <dl class="single">
-          <dt>ニュースの配信を希望されますか？</dt>
-          <dd>
-            <input type="checkbox" id="yes" value="ニュース配信希望">
-            <label for="yes">同意する</label>
-          </dd>
-          <dd class="reply btn">送信</dd>
-          <dd class="reply">
-            回答
-          </dd>
-        </dl>
-        
-        <dl class="multiple">
-          <dt>選択科目にチェックをしてください。</dt>
-          <dd>
-            <input type="checkbox" id="js" value="JavaScript" name="study">
-            <label for="js">JavaScript</label>
-          </dd>
-          <dd>
-            <input type="checkbox" id="ruby" value="Ruby" name="study">
-            <label for="ruby">Ruby</label>
-          </dd>
-          <dd>
-            <input type="checkbox" id="python" value="Python" name="study">
-            <label for="python">Python</label>
-          </dd>
-          <dd class="reply btn">送信</dd>
-          <dd class="reply">
-            <p>選択したもの</p>
-          </dd>
-        </dl>
-      </form>
-    </div> -->
   </div>
 </body>
 
