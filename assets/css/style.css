@@ -18,7 +18,73 @@ body {
   border-radius: .3rem;
 }
 
-p {
+form {
+  width: 30%;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: #fff;
+  border-radius: .3rem;
+}
+
+.wrapper {
+  display: inline-block;
+}
+
+.wrapper:not(:first-of-type) {
+  margin-left: 1rem;
+}
+
+input {
+  display: none;
+}
+
+dd label {
+  position: relative;
+  padding-left: 1.25em;
+}
+
+input[type="radio"] + label::before,
+input[type="radio"]:checked + label::after {
+  position: absolute;
+  content: "";
+  transition: .5s;
+}
+
+input[type="radio"] + label::before {
+  top: 50%;
+  transform: translateY(-40%);
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #999;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked + label::after {
+  top: 50%;
+  transform: translateY(-35%);
+  left: .25em;
+  width: .5em;
+  height: .5em;
+  background-color: #aaa;
+  border-radius: 50%;
+}
+
+.reply {
+  margin-top: 1rem;
   font-weight: 700;
   text-align: center;
+  color: #fff;
+  background-color: #555;
+  border-radius: .3rem;
+}
+
+dl {
+  margin-top: 1rem;
+}
+
+dd > a {
+  font-weight: 500;
+  color: rgb(76, 76, 207);
 }

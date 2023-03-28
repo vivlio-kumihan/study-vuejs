@@ -18,9 +18,33 @@
 <body>
   <div class="container">
     <div id="app">
-      <p>{{ str }}</p>
-      <p>{{ toStringOne }}</p>
-      <p>{{ toStringTwo() }}</p>
+      <form id="han-digit" action="" method="post">
+        <dl>
+          <dt>漢数字を受け渡す</dt>
+          <dd>
+            <div class="wrapper">
+              <input type="radio" id="hundred" v-model="unit" v-on:change="onchange"
+                v-bind:value="{ name: '百', size: 100}">
+              <label for="hundred">百</label>
+            </div>
+            <div class="wrapper">
+              <input type="radio" id="thousand" v-model="unit" v-on:change="onchange"
+                v-bind:value="{ name: '千', size: 1000}">
+              <label for="thousand">千</label>
+            </div>
+            <div class="wrapper">
+              <input type="radio" id="ten-thousand" v-model="unit" v-on:change="onchange"
+                v-bind:value="{ name: '万', size: 10000}">
+              <label for="ten-thousand">万</label>
+            </div>
+          <dd class="reply">
+            <p>{{ onchange() }}</p>
+          </dd>
+          <dd>
+            <a v-bind:href="uri" v-on:click="targetBrank" >=> go kumihan.com</a>
+          </dd>
+        </dl>
+      </form>
     </div>
   </div>
 </body>
