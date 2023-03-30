@@ -18,23 +18,28 @@
 <body>
   <div class="container">
     <div id="app">
-      <form id="show-on-off" action="" method="post">
+      <form action="" method="post">
         <dl>
-          <dt>表示・非表示について</dt>
+          <dt>
+            <label for="holiday">祝日：</label>
+          </dt>
           <dd>
-            <input type="checkbox" id="show" v-model="show">
-            <label for="show">表示・非表示</label>
+            <select name="holiday" id="holiday" v-model="holiday">
+              <optgroup value="" label="祝日を選択してください。">
+                <option value="newYear">元旦</option>
+                <option value="child">こどもの日</option>
+                <option value="culture">文化の日</option>
+                <option value="labor">勤労感謝の日</option>
+              </optgroup>
+            </select>
           </dd>
-          <dd>
-            <div id="panel" v-if="show">
-              <h3>RSSフィードについて</h3>
-              <p>「RSS」をうまく活用すれば、必要とする情報を効率よく取得し、新着記事や更新情報をリアルタイムに入手することができます。複数のWebサイトから必要な情報だけを自動で取得・まとめて管理することができるので、その都度サイトを訪れる必要はありません。</p>
-            </div>
-            <footer v-else>現在は、非表示状態です。</footer>
-          </dd>
-          <div class="last-element">あえて最後の要素を記述しておく。</div>
         </dl>
       </form>
+      <p v-if="holiday==='newYear'">1月1日　年のはじめを祝う。</p>
+      <p v-else-if="holiday==='child'">5月5日　こどもの成長を祝う。</p>
+      <p v-else-if="holiday==='culture'">11月3日　日本国憲法が公布された日と同日でもあるため、平和や自由を大切にし、文化の発展を願うといった、憲法の精神に基づく意味が込められている。</p>
+      <p v-else-if="holiday==='labor'">11月23日　労働者に感謝する。</p>
+      <p v-else>何も選択されていません。</p>
     </div>
   </div>
 </body>
