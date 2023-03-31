@@ -17,30 +17,18 @@
 
 <body>
   <div class="container">
-    <div id="app">
-      <form action="" method="post">
-        <dl>
-          <dt>
-            <label for="holiday">祝日：</label>
-          </dt>
-          <dd>
-            <select name="holiday" id="holiday" v-model="holiday">
-              <optgroup value="" label="祝日を選択してください。">
-                <option value="newYear">元旦</option>
-                <option value="child">こどもの日</option>
-                <option value="culture">文化の日</option>
-                <option value="labor">勤労感謝の日</option>
-              </optgroup>
-            </select>
-          </dd>
-        </dl>
-      </form>
-      <p v-if="holiday==='newYear'">1月1日　年のはじめを祝う。</p>
-      <p v-else-if="holiday==='child'">5月5日　こどもの成長を祝う。</p>
-      <p v-else-if="holiday==='culture'">11月3日　日本国憲法が公布された日と同日でもあるため、平和や自由を大切にし、文化の発展を願うといった、憲法の精神に基づく意味が込められている。</p>
-      <p v-else-if="holiday==='labor'">11月23日　労働者に感謝する。</p>
-      <p v-else>何も選択されていません。</p>
-    </div>
+    <dl id="app">
+      <div class="books header">
+        <dt>ISBN</dt>
+        <dt>書名</dt>
+        <dt>価格</dt>
+      </div>
+      <div class="books" v-for="book in books">
+        <dt class="isbn-num">{{ book.isbn }}</dt>
+        <dd class="title-text">{{ book.title }}</dd>
+        <dd class="price-num">{{ book.price }}円</dd>
+      </div>
+    </dl>
   </div>
 </body>
 

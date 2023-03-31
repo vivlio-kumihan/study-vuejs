@@ -7,62 +7,72 @@ html {
 body {
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.7;
+  color: #555;
 }
 
 .container {
   max-width: 900px;
-  height: 100vh;
   margin: 5rem auto;
-}
-
-#app {
-  width: 400px;
-  margin: 0 auto;
   padding: 1rem;
   background-color: #eee;
   border-radius: .3rem;
 }
 
-dl {
+.books {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.books > dt,
+.books > dd {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+
+  padding: 1rem 2rem 1rem 0;
+  border-bottom: 1px solid #333;
 }
 
-dt {
-  flex: 1;
+.books.header > dt,
+.books.header > dd {
+  padding-bottom: .25rem;
 }
 
-dd {
-  flex: 6;
-  position: relative;
-}
+@media screen and (max-width: 600px) {
+  .books.header {
+    display: none;
+  }
+  
+  .books {
+    display: block;
+  }
 
-dd::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 1rem;
+  .books > dt,
+  .books > dd {
+    align-items: flex-start;
+    position: relative;
+    padding-left: 4rem;
+  }
 
-  content: "\f13a";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 1.5rem;
-  pointer-events: none;
-  color: #999;
-}
+  .books > dt.isbn-num::before {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    content: "ISBN";
+  }
 
-select {
-  width: 100%;
-  padding: .5rem 1rem;
-  background-color: #fff;
-  border-radius: .3rem;
-}
+  .books > dd.title-text::before,
+  .books > dd.price-num::before {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    font-weight: 700;
+  }
+  
+  .books > dd.title-text::before {
+    content: "書名";
+  }
 
-select:focus-visible {
-  outline: none;
-}
-
-#app > p {
-  margin-top: 1rem;
+  .books > dd.price-num::before {
+    content: "価格";
+  }
 }
