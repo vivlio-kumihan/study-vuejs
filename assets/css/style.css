@@ -18,61 +18,6 @@ body {
   border-radius: .3rem;
 }
 
-.books {
-  display: grid;
-  grid-template-columns: 3rem 1fr 2fr 1fr;
-}
-
-.books > dt,
-.books > dd {
-  display: flex;
-  align-items: flex-start;
-
-  padding: 1rem 2rem 1rem 0;
-  border-bottom: 1px solid #333;
-}
-
-.books.header > dt,
-.books.header > dd {
-  padding-bottom: .25rem;
-}
-
-@media screen and (max-width: 600px) {
-  .books.header {
-    display: none;
-  }
-
-  .books {
-    display: block;
-  }
-
-  .books > dt,
-  .books > dd {
-    align-items: flex-start;
-    position: relative;
-    padding-left: 4rem;
-  }
-
-  .books > dt.isbn-num::before {
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    content: "ISBN";
-  }
-
-  .books > dd.title-text::before,
-  .books > dd.price-num::before {
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    font-weight: 700;
-  }
-  
-  .books > dd.title-text::before {
-    content: "書名";
-  }
-
-  .books > dd.price-num::before {
-    content: "価格";
-  }
+span[lang="en"] {
+  text-transform: uppercase;
 }
