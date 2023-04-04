@@ -17,14 +17,12 @@
 
 <body>
   <div class="container">
-    <dl id="app">
-      <div class="books header">
-        <dt>価格リスト</dt>
-      </div>
-      <ul class="books" v-for="(value, key, idx) in book">
-        <li><span lang="en">{{ key }}</span>: {{ value }}</li>
+    <div id="app">
+      <ul>
+        <li v-for="[key, value] in map">
+          {{ key }} : {{ value }}
+        </li>
       </ul>
-    </dl>
   </div>
 </body>
 

@@ -1,11 +1,11 @@
 Vue.createApp({
   data() {
     return {
-      book: {
-        isbn: '978-4-7981-5757-3',
-        title: 'JavaScript逆引きレシピ',
-        price: 2800
-      }
+      map: new Map([
+        ['PHP', 'PHP: Hypertext Preprocessor'],
+        ['JSP', 'Jakarta Server Pages'],
+        ['ASP', 'Active Server Pages']
+      ])
     }
   }
 }).mount("#app")
