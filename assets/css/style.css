@@ -18,6 +18,9 @@ body {
   border-radius: .3rem;
 }
 
-span[lang="en"] {
-  text-transform: uppercase;
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 }
