@@ -18,40 +18,18 @@ body {
   border-radius: .3rem;
 }
 
-dl {
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
+a {
+  display: inline-block;
   width: 100%;
-}
-
-dt {
-  flex: 1;
-  text-transform: uppercase;
-}
-
-dd {
-  flex: 6;
-}
-
-dd:last-of-type {
-  flex: 1;
-  margin-left: 1rem;
-  padding: .25rem 1rem;
+  padding: 1rem;
+  font-family: 'Rubik Dirt', cursive, cursive;
+  font-size: 1.5rem;
   font-weight: 700;
+  text-transform: capitalize;
   text-align: center;
-  color: #fff;
-  background-color: #555;
-  border-radius: .3rem;
+  visibility: hidden;
 }
 
-#inPutText {
-  width: 100%;
-  padding: .5rem 1rem;
-  background-color: #fff;
-  border-radius: .3rem;
-}
-
-#out-put-text {
-  margin-top: 1rem;
+.my-site.active {
+  visibility: visible;
 }

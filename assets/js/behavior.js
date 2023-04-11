@@ -1,29 +1,27 @@
-// formにテキスト入力をHTMLへ出力する
-// Vannira.js version
-// document.getElementById("form").onsubmit = function (event) {
-//   event.preventDefault()
-//   // console.log(event)
-//   let inPutText = document.getElementById("inPutText").value
-//   let outPutText = document.querySelector("#out-put-text")
-//   outPutText.textContent = `入力されたものは『${ inPutText }』ですね。`
-// }
-
 Vue.createApp({
-  // data: function() {
+  // vueの中で使う共通の変数定義場所
   data() {
     return {
-      inputText: "入力"
+      activeTrue: true
     }
+  },
+  methods: {
+    styleChange() {
+      return {
+        color: this.activeTrue ? "red" : "blue"
+      }
+    }
+  },
+  // ライフサイクルメソッド
+  // アプリがマウントされてから動く部分
+  // とりあえず、ここで自由にJS書いて徐々にVueへ移していくための場所として使える。
+  mounted() {
+    function greet(name="takahiro") {
+      console.log(`hello ${ name }. here is js free!`)
+    }
+    greet("nobuyuki")
+    // thisを使えば、Vueの変数を垣根を超える。
+    console.log(this.text)
   }
+
 }).mount("#app")
-// Vue.createApp({
-//   data() {
-//     return {
-//       map: new Map([
-//         ['PHP', 'PHP: Hypertext Preprocessor'],
-//         ['JSP', 'Jakarta Server Pages'],
-//         ['ASP', 'Active Server Pages']
-//       ])
-//     }
-//   }
-// }).mount("#app")

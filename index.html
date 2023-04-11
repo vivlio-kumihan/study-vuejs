@@ -12,45 +12,20 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://kit.fontawesome.com/678cad97f5.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script> -->
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 
 <body>
   <div class="container">
-    <!-- <<<<<<<<< Vannila.js version >>>>>>>>>> -->
-    <!-- <form id="form" action="" name="" method="post">
-      <dl>
-        <dt>
-          <label for="inputText">input:</label>
-        </dt>
-        <dd>
-          <input id="inPutText" type="text">
-        </dd>
-        <dd>
-          <input id="btn" type="submit" value="送　信">
-        </dd>
-      </dl>
-      <p id="out-put-text">入力結果の表示 => </p>
-    </form> -->
-    
-    <!-- <<<<<<<<< Vue.js version >>>>>>>>>> -->
     <div id="app">
-      <form id="form" action="" name="" method="post">
-        <dl>
-          <dt>
-            <label for="inputText">input:</label>
-          </dt>
-          <dd>
-            <input id="inPutText" type="text" v-model.lazy="inputText">
-          </dd>
-          <dd>
-            <input id="btn" type="submit" value="送　信">
-          </dd>
-        </dl>
-        <p id="out-put-text">{{ inputText }}</p>
-      </form>
+      <a  class="my-site"
+          v-bind:class="{ active:activeTrue }"
+          v-bind:href="link"
+          v-bind:style="{ color:textColor, fontSize:size }">{{ textOne }}</a>
+      <a  class="your-site"
+          v-bind:style="styleChange()">{{ textTwo }}</a>
     </div>
-
   </div>
 </body>
 
