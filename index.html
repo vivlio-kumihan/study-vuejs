@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./assets/css/destyle.css">
@@ -17,16 +16,11 @@
 </head>
 
 <body>
-  <div class="container">
-    <div id="app">
-      <a  class="my-site"
-          v-bind:class="{ active:activeTrue }"
-          v-bind:href="link"
-          v-bind:style="{ color:textColor, fontSize:size }">{{ textOne }}</a>
-      <a  class="your-site"
-          v-bind:style="styleChange()">{{ textTwo }}</a>
-    </div>
-  </div>
+  <div id="app">
+    <h2>{{ text }}</h2>
+    <h2>{{ a }}</h2>
+    <h2>{{ arr[1] }}</h2>
+    <h2>{{ hash.name }}</h2>
 </body>
 
 </html>

@@ -1,27 +1,33 @@
-Vue.createApp({
-  // vueの中で使う共通の変数定義場所
+const app = ({
+  // data: function() {
   data() {
     return {
-      activeTrue: true
-    }
-  },
-  methods: {
-    styleChange() {
-      return {
-        color: this.activeTrue ? "red" : "blue"
+      // ここで生成したインスタンスをHTMLで出力できる。
+      // textContentみたいなもの
+      text: 'hello',
+      // 変数
+      a: 1,
+      // 配列
+      arr: ['a', 'b'],
+      // 連想配列
+      hash: {
+        name: 'nobuyuki'
       }
     }
   },
-  // ライフサイクルメソッド
-  // アプリがマウントされてから動く部分
-  // とりあえず、ここで自由にJS書いて徐々にVueへ移していくための場所として使える。
+  // ライフサイクル・メソッド
+  // 上の処理が終わったらこちらの処理をする
+  // ここで、JavaScriptを書ける
+  // mounted: function() {
   mounted() {
-    function greet(name="takahiro") {
-      console.log(`hello ${ name }. here is js free!`)
+    // 関数を定義して。。。
+    function greet(arg = 'hello') {
+      console.log(arg)
     }
-    greet("nobuyuki")
-    // thisを使えば、Vueの変数を垣根を超える。
+    // コンソールへ出力してみる。
+    greet('good night')
+    // ここのインスタンスは『this』
     console.log(this.text)
   }
-
-}).mount("#app")
+})
+Vue.createApp(app).mount('#app')
