@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./assets/css/destyle.css">
@@ -11,22 +10,15 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://kit.fontawesome.com/678cad97f5.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script> -->
   <script src="./assets/js/behavior.js" defer></script>
-
 </head>
 <body>
-  <div class="container">
-    <div id="app">
-      <form action="" method="post">
-        <dl>
-          <div class="row">
-            <dt><label for="name">入力：</label></dt>
-            <dd><input type="text" id="name" v-model="myName"></dd>
-          </div>
-          <p>入力が同時に出力されます。=> {{ myName }}</p>
-        </dl>
-      </form>
-    </div>
+  <div id="app">
+    <h2>{{ text }}</h2>
+    <h2>{{ a }}</h2>
+    <h2>{{ arr[1] }}</h2>
+    <h2>{{ hash.name }}</h2>
   </div>
 </body>
 </html>
