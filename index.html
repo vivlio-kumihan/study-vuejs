@@ -16,11 +16,20 @@
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" class="app">
     <h2>{{ text }}</h2>
-    <h2>{{ a }}</h2>
-    <h2>{{ arr[1] }}</h2>
-    <h2>{{ hash.name }}</h2>
+    <!-- これをディレクティブという -->
+    <!-- <elem v-....="..."></elem> -->
+    <h2 v-text="text2"></h2>
+    <!-- 通常はマスタッシュを使うが、URLを出力する場合など用途によって使い分ける -->
+    <!-- こちらは出力されない。 -->
+    <h2 v-text="text3"></h2>
+    <!-- このディレクティブを使って出力 -->
+    <h2 v-html="text3"></h2>
+    <!-- 変数を属性へ持っていく場合 -->
+    <a v-bind:href="link">link</a>
+    <!-- 省略形 -->
+    <a :href="link">link</a>
 </body>
 
 </html>

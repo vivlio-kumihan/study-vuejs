@@ -10,26 +10,10 @@ body {
   color: #555;
 }
 
-.container {
+.app {
   max-width: 600px;
   margin: 5rem auto;
   padding: 1rem;
   background-color: #eee;
   border-radius: .3rem;
-}
-
-a {
-  display: inline-block;
-  width: 100%;
-  padding: 1rem;
-  font-family: 'Rubik Dirt', cursive, cursive;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: capitalize;
-  text-align: center;
-  visibility: hidden;
-}
-
-.my-site.active {
-  visibility: visible;
 }

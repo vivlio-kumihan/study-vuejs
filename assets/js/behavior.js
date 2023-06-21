@@ -5,14 +5,9 @@ const app = ({
       // ここで生成したインスタンスをHTMLで出力できる。
       // textContentみたいなもの
       text: 'hello',
-      // 変数
-      a: 1,
-      // 配列
-      arr: ['a', 'b'],
-      // 連想配列
-      hash: {
-        name: 'nobuyuki'
-      }
+      text2: 'goodbye',
+      text3: '<a href="https://kumihan.com"></a>',
+      link: 'https://kumihan.com',
     }
   },
   // ライフサイクル・メソッド
@@ -20,14 +15,7 @@ const app = ({
   // ここで、JavaScriptを書ける
   // mounted: function() {
   mounted() {
-    // 関数を定義して。。。
-    function greet(arg = 'hello') {
-      console.log(arg)
-    }
-    // コンソールへ出力してみる。
-    greet('good night')
-    // ここのインスタンスは『this』
-    console.log(this.text)
+    this.link = 'https://apple.com'
   }
 })
 Vue.createApp(app).mount('#app')
