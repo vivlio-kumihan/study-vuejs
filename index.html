@@ -16,20 +16,21 @@
 </head>
 
 <body>
-  <div id="app" class="app">
+  <div id="app" class="app" :style="{ backgroundColor: bgColor}">
     <h2>{{ text }}</h2>
-    <!-- これをディレクティブという -->
-    <!-- <elem v-....="..."></elem> -->
-    <h2 v-text="text2"></h2>
-    <!-- 通常はマスタッシュを使うが、URLを出力する場合など用途によって使い分ける -->
-    <!-- こちらは出力されない。 -->
-    <h2 v-text="text3"></h2>
-    <!-- このディレクティブを使って出力 -->
-    <h2 v-html="text3"></h2>
-    <!-- 変数を属性へ持っていく場合 -->
-    <a v-bind:href="link">link</a>
-    <!-- 省略形 -->
-    <a :href="link">link</a>
+    <a href="#" :style="{ color: color }">anchor</a>
+    <a href="#" 
+      style="letter-spacing: 1em; text-align: center;"
+      :style="{ display: display,
+                backgroundColor: bgColor,
+                lineHeight: lineHeight }">anchor</a>
+    <button class="btn"
+            :class="{ active: active,
+                      versionOne: versionOne }"
+            :style="btnStyle()">
+      button
+    </button>
+  </div>
 </body>
 
 </html>

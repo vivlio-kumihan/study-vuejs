@@ -5,17 +5,34 @@ const app = ({
       // ここで生成したインスタンスをHTMLで出力できる。
       // textContentみたいなもの
       text: 'hello',
-      text2: 'goodbye',
-      text3: '<a href="https://kumihan.com"></a>',
-      link: 'https://kumihan.com',
+
+      color: 'red',
+      display: 'block',
+      bgColor: '#999',
+      lineHeight: '5',
+
+      active: true,
+      versionOne: true,
+
+      // btnStyle: {
+      //   margin: '100px auto',
+      //   padding: '20px',
+      //   color: '#fff',
+      //   backgroundColor: '#333',
+      //   borderRadius: '5px'
+      // }
     }
   },
-  // ライフサイクル・メソッド
-  // 上の処理が終わったらこちらの処理をする
-  // ここで、JavaScriptを書ける
-  // mounted: function() {
-  mounted() {
-    this.link = 'https://apple.com'
-  }
+  methods: {
+    btnStyle() {
+      return {
+        margin: '100px auto',
+        padding: '20px',
+        color: '#fff',
+        backgroundColor: '#333',
+        borderRadius: '5px'
+      }
+    }
+  },
 })
 Vue.createApp(app).mount('#app')
