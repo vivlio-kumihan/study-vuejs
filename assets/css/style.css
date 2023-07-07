@@ -1,13 +1,11 @@
-@charset "UTF-8";
-
 html {
   font-size: 15px;
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
-  line-height: 1.7;
-  color: #555;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.5;
+  color: #333;
 }
 
 .app {
@@ -15,5 +13,5 @@ body {
   margin: 5rem auto;
   padding: 1rem;
   background-color: #eee;
-  border-radius: .3rem;
-}
+  border-radius: 0.3rem;
+}/*# sourceMappingURL=style.css.map */

@@ -1,38 +1,26 @@
 const app = ({
   // data: function() {
+  // ショートハンド
   data() {
     return {
-      // ここで生成したインスタンスをHTMLで出力できる。
-      // textContentみたいなもの
-      text: 'hello',
-
-      color: 'red',
-      display: 'block',
-      bgColor: '#999',
-      lineHeight: '5',
-
-      active: true,
-      versionOne: true,
-
-      // btnStyle: {
-      //   margin: '100px auto',
-      //   padding: '20px',
-      //   color: '#fff',
-      //   backgroundColor: '#333',
-      //   borderRadius: '5px'
-      // }
-    }
-  },
-  methods: {
-    btnStyle() {
-      return {
-        margin: '100px auto',
-        padding: '20px',
-        color: '#fff',
-        backgroundColor: '#333',
-        borderRadius: '5px'
+      // 変数に値を格納する。
+      text: 'Hello Vue!',
+      arr: ['信之', '和恵', '茉李'],
+      profile: {
+        name: '信之',
+        age: 58,
+        place: '大阪'
       }
     }
+  },
+  // mounted: function() {
+  // ショートハンド
+  mounted() {
+    console.log('Hello Vue!')
+    function greet(para = 'Hello') {
+      console.log(`${ para }, Takahiro!`)
+    }
+    greet('So long')
   },
 })
 Vue.createApp(app).mount('#app')
