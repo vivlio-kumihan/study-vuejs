@@ -1,26 +1,21 @@
+// 変数に値を格納し、
+// メソッドを定義し、
+// 定義したメソッドにメッセージを送る
 const app = ({
-  // data: function() {
-  // ショートハンド
   data() {
     return {
-      // 変数に値を格納する。
       text: 'Hello Vue!',
-      arr: ['信之', '和恵', '茉李'],
-      profile: {
-        name: '信之',
-        age: 58,
-        place: '大阪'
-      }
+      count: 1
     }
   },
-  // mounted: function() {
-  // ショートハンド
-  mounted() {
-    console.log('Hello Vue!')
-    function greet(para = 'Hello') {
-      console.log(`${ para }, Takahiro!`)
+  methods: {
+    changeText(para = 'takahiro') {
+      this.text = `hello ${ para }!`
+    },
+    countUp() {
+      this.count++
     }
-    greet('So long')
-  },
+  }
 })
 Vue.createApp(app).mount('#app')
+

@@ -14,10 +14,10 @@
 </head>
 
 <body>
-  <div id="app">
-    <!-- マスタッシュで変数を呼び出す。 -->
-    {{ text }}
-    {{ arr }}
+  <div id="app" class="app">
+    <a href="">{{ text }}</a> 
+    <button v-on:click="changeText('kazu')">method</button>
+    <button v-on:mouseenter="countUp()">{{ count }}</button>
   </div>
 </body>
 
