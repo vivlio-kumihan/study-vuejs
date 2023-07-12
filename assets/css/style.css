@@ -10,6 +10,7 @@ body {
 
 .app {
   display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: 5rem auto;
   padding: 1rem;
@@ -17,11 +18,16 @@ body {
   border-radius: 0.3rem;
 }
 .app a {
-  display: inline-block;
+  display: block;
 }
 .app a + a {
   margin-left: 20px;
 }
 .app button {
   margin-left: 20px;
+}
+
+.active {
+  font-weight: bold;
+  color: blue;
 }/*# sourceMappingURL=style.css.map */

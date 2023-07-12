@@ -1,14 +1,18 @@
 .app 
   display: flex
+  flex-direction: column
   max-width: 600px
   margin: 5rem auto
   padding: 1rem
   background-color: #eee
   border-radius: .3rem
   a
-    display: inline-block
+    display: block
     + a
       margin-left: 20px
   button
     margin-left: 20px
 
+.active
+  font-weight: bold
+  color: blue
