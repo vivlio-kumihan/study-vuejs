@@ -1,62 +1,36 @@
-// クラスとスタイルのバインディング
-
 Vue.createApp({
-  data: function() { 
+  data() {
     return {
-      text: 'hello vue!',
-      // URL（文字列）を変数に格納している。
-      link: 'https://apple.com',
-      // 要素のスタイル属性を変数に格納する。
-      // 文字列として格納する。
-      textColor: 'red',
-      white: '#fff',
-      bgColor: 'green',
+      text: 'hello vue',
       flag: true,
-      classActive: true,
-      textStyle: {
-        fontSize: '20px',
-        fontWeight: 'bold',
-        color: '#fff',
-        backgroundColor: '#999'
-      }
+      count: 1
     }
   },
   methods: {
-    textStyleMethods() {
-      return {
-        fontSize: '20px',
-        fontWeight: 'bold',
-        color: this.flag ? 'blue' : 'green',
-        backgroundColor: 'red'
-      }
+    changeTxt(name = 'john') {
+      // コンソールログに定義した文字列を出力させる。
+      console.log(`hello ${ name }`)
+      // 受けた引数をHTMLに出力する。
+      this.text = `hello ${ name }`
     },
-    activateClass() {
+    classFlag() {
       return {
         active: this.flag
       }
+    },
+    countUp() {
+      return {
+        count: this.count++
+      }
     }
+  },
+  // JSが読み込まれてから実行したいものを入れる場所
+  // 定義したメソッドを実行する場所として使うことができる。
+  // mounted: function() {
+  mounted() {
+    // この場所に、
+    // このインスタンス内にある当該のメソッドを実行する。
+    this.changeTxt()
   }
 }).mount('#app')
-
-
-// // 変数に値を格納し、
-// // メソッドを定義し、
-// // 定義したメソッドにメッセージを送る
-// const app = ({
-//   data() {
-//     return {
-//       text: 'Hello Vue!',
-//       count: 1
-//     }
-//   },
-//   methods: {
-//     changeText(para = 'takahiro') {
-//       this.text = `hello ${ para }!`
-//     },
-//     countUp() {
-//       this.count++
-//     }
-//   }
-// })
-// Vue.createApp(app).mount('#app')
 

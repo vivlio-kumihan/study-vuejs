@@ -15,20 +15,20 @@
 
 <body>
   <div id="app" class="app">
-    <!-- この要素では、:href=でVue.jsで設定したデータとバインディングを実現している。 -->
-    <a :href=link target="_blank">{{ text }}</a> 
-    <!-- スタイルは『オブジェクト（ハッシュ）』で記述していく。 -->
-    <!-- 属性の書式はキャメルケース。 -->
-    <p :style="{ color: textColor }">{{ text }}</p>
-    <p :style="{ color: white,  backgroundColor: bgColor }">{{ text }}</p>
-    <!-- 論理値を値にクラス属性をつけることが出来る。追加もできる。 -->
-    <p :class="{ active: flag, classActive: flag }">{{ text }}</p>
-    <!-- 属性の内容を変数とし、内容をVue側で設定することができる。 -->
-    <p :style="textStyle">{{ text }}</p>
-    <!-- スタイル属性の内容をVue側でメソッドに定義することもできる。 -->
-    <p :style="textStyleMethods()">{{ text }}</p>
-    <!-- クラス属性にactiveをセットする。 -->
-    <p :class="activateClass()">{{ text }}</p>
+    <!-- メソッドを使ってクラスを変更する。 -->
+    <!-- <p v-bind:class="classFlag()">{{ text }}</p> -->
+    <!-- 省略形 -->
+    <p :class="classFlag()">{{ text }}</p>
+
+    <!-- クリックしたらコンソールに引数の値を反映させたテキストを出力する。 -->
+    <!-- <button v-on:click="changeTxt('takahiro')">call method</button> -->
+    <!-- 省略形 -->
+    <button @click="changeTxt('takahiro')">call method</button>
+
+    <!-- countUpメソッドを適用して値をクリックする度に変更する仕組み。 -->
+    <button @click="countUp()">{{ count }}</button>
+    <!-- マウスオーバーの例 -->
+    <button @mouseenter="countUp()">{{ count }}</button>
   </div>
 </body>
 
