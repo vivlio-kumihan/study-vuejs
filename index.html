@@ -13,22 +13,26 @@
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 
-<body>
+<body>  
+  <!-- #02 -->
   <div id="app" class="app">
-    <!-- メソッドを使ってクラスを変更する。 -->
-    <!-- <p v-bind:class="classFlag()">{{ text }}</p> -->
-    <!-- 省略形 -->
-    <p :class="classFlag()">{{ text }}</p>
-
-    <!-- クリックしたらコンソールに引数の値を反映させたテキストを出力する。 -->
-    <!-- <button v-on:click="changeTxt('takahiro')">call method</button> -->
-    <!-- 省略形 -->
-    <button @click="changeTxt('takahiro')">call method</button>
-
-    <!-- countUpメソッドを適用して値をクリックする度に変更する仕組み。 -->
-    <button @click="countUp()">{{ count }}</button>
-    <!-- マウスオーバーの例 -->
-    <button @mouseenter="countUp()">{{ count }}</button>
+    <!-- toggleのやり方　コツ　@click="flag = !flag" -->
+    <!-- Vueでは、dataオプションに『flag: false』と設定している。 -->
+    <p>flag is {{ flag }}</p>
+    <p>!flag is {{ !flag }}</p>
+    <button @click="flag = !flag">open menu</button>
+    <!-- マスクがアクティブな状態。マスクをクリックするとマスクを隠したい。 -->
+    <!-- で、ここで驚きは、クリックすると全ての状態が逆スイッチ押されることになる。 -->
+    <div class="mask" :class="{ active: flag }" @click="flag = !flag"></div>
+    <nav :class="{ active: flag }">
+      <ul >
+        <li><a href="">menu1</a></li>
+        <li><a href="">menu2</a></li>
+        <li><a href="">menu3</a></li>
+      </ul>
+      <!-- maskと同じようにメニューのボタンをクリックしたら逆スイッチを起動する。 -->
+      <button @click="flag = !flag">close</button>
+    </nav>
   </div>
 </body>
 

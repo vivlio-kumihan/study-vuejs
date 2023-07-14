@@ -254,3 +254,142 @@ Vue.createApp({
   }
 }).mount('#app')
 ```
+
+## モーダルウィンドウ　--methodを使ったメニューの切り替え
+
+たったこれだけのコードで実現できることの凄さを実感。
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      flag: false
+    }
+  }
+}).mount('#app')
+```
+
+```scss
+.app 
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: min(600px, 100%)
+  margin: 0 auto
+  padding-top: 50px
+  font-size: 14px
+  font-weight: bold
+  text-transform: uppercase
+  p
+    text-transform: none
+  button
+    margin-top: 30px
+    padding: 10px 20px
+    text-align: center
+    color: #fff
+    background-color: #999
+    border-radius: 3px
+  nav
+    position: fixed
+    top: 0
+    right: 0
+    width: 20vw
+    margin: 0 auto
+    padding: 20px 0
+    text-align: center
+    font-size: 12px
+    color: #fff
+    background-color: #eee
+    border-bottom-left-radius: 5px
+    transition: .3s
+    transform: translateX(100%)
+    opacity: 0
+    &.active
+      transform: translateX(0)
+      opacity: 1
+    ul
+      li
+        padding-bottom: 20px
+        border-bottom: 1px solid #aaa
+        + li
+          margin-top: 20px
+        a
+          display: inline-block
+          padding: 5px 10px
+          border-radius: 3px
+          background-color: #52528c
+    button
+      margin-top: 20px
+      padding: 5px 10px
+      background-color: #ff6f00
+  .mask
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .5)
+    transition: .5s
+    visibility: hidden
+    opacity: 0
+    &.active
+      visibility: visible
+      opacity: 1
+```
+
+### 01 HTML
+
+とりあえず、ボタンをクリックしたら、右メニューが出てきて背景が暗くなる。
+マスクをクリックしてtoggleが機動するまでをやってみる。
+
+ここでは、ボタンの名称がtoggleする度に変化するのがミソ。
+
+```html
+<!-- #01 -->
+<div id="app" class="app">
+  <!-- toggleのやり方　コツ　@click="flag = !flag" -->
+  <!-- Vueでは、dataオプションに『flag: false』と設定している。 -->
+  <p>flag is {{ flag }}</p>
+  <p>!flag is {{ !flag }}</p>
+  <!-- @click="flag = !flag" === クリックしたら『@click="flag = true"』という意味。 -->
+  <!-- で、その状態で、flagは『true』で、条件分岐を通して『close menu』の文字列になり、 -->
+  <!-- あとは、状態を相互にスイッチする動きになる。 -->
+  <button @click="flag = !flag">{{ flag ? 'close menu' : 'open menu'}}</button>
+  <!-- マスクがアクティブな状態。マスクをクリックするとマスクを隠したい。 -->
+  <!-- で、ここで驚きは、クリックすると全ての状態が逆スイッチ押されることになる。 -->
+  <div class="mask" :class="{ active: flag }" @click="flag = !flag"></div>
+  <ul :class="{ active: flag }">
+    <li><a href="">menu1</a></li>
+    <li><a href="">menu2</a></li>
+    <li><a href="">menu3</a></li>
+  </ul>
+</div>
+```
+
+### 02 HTML
+
+__Vue.js版　モーダルウィンドウを作成するために元になるコード__
+メニューに閉じるボタンを追加した最終バージョン。
+
+```html
+<!-- #02 -->
+<div id="app" class="app">
+  <!-- toggleのやり方　コツ　@click="flag = !flag" -->
+  <!-- Vueでは、dataオプションに『flag: false』と設定している。 -->
+  <p>flag is {{ flag }}</p>
+  <p>!flag is {{ !flag }}</p>
+  <button @click="flag = !flag">open menu</button>
+  <!-- マスクがアクティブな状態。マスクをクリックするとマスクを隠したい。 -->
+  <!-- で、ここで驚きは、クリックすると全ての状態が逆スイッチ押されることになる。 -->
+  <div class="mask" :class="{ active: flag }" @click="flag = !flag"></div>
+  <nav :class="{ active: flag }">
+    <ul >
+      <li><a href="">menu1</a></li>
+      <li><a href="">menu2</a></li>
+      <li><a href="">menu3</a></li>
+    </ul>
+    <!-- maskと同じようにメニューのボタンをクリックしたら逆スイッチを起動する。 -->
+    <button @click="flag = !flag">close</button>
+  </nav>
+</div>
+```

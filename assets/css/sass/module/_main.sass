@@ -1,22 +1,67 @@
 .app 
   display: flex
   flex-direction: column
-  max-width: 600px
-  margin: 5rem auto
-  padding: 1rem
-  background-color: #eee
-  border-radius: .3rem
-  a
-    display: block
-    + a
-      margin-left: 20px
+  align-items: center
+  width: min(600px, 100%)
+  margin: 0 auto
+  padding-top: 50px
+  font-size: 14px
+  font-weight: bold
+  text-transform: uppercase
+  p
+    text-transform: none
   button
-    display: inline-block
-    padding: 10px
+    margin-top: 30px
+    padding: 10px 20px
+    text-align: center
     color: #fff
     background-color: #999
     border-radius: 3px
+  nav
+    position: fixed
+    top: 0
+    right: 0
+    width: 20vw
+    margin: 0 auto
+    padding: 20px 0
+    text-align: center
+    font-size: 12px
+    color: #fff
+    background-color: #eee
+    border-bottom-left-radius: 5px
+    transition: .3s
+    transform: translateX(100%)
+    opacity: 0
+    &.active
+      transform: translateX(0)
+      opacity: 1
+    ul
+      li
+        padding-bottom: 20px
+        border-bottom: 1px solid #aaa
+        + li
+          margin-top: 20px
+        a
+          display: inline-block
+          padding: 5px 10px
+          border-radius: 3px
+          background-color: #52528c
+    button
+      margin-top: 20px
+      padding: 5px 10px
+      background-color: #ff6f00
+  .mask
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .5)
+    transition: .5s
+    visibility: hidden
+    opacity: 0
+    &.active
+      visibility: visible
+      opacity: 1
 
-.active
-  font-weight: bold
-  color: blue
+
