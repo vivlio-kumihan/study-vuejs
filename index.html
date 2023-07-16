@@ -14,25 +14,15 @@
 </head>
 
 <body>  
-  <!-- #02 -->
   <div id="app" class="app">
-    <!-- toggleのやり方　コツ　@click="flag = !flag" -->
-    <!-- Vueでは、dataオプションに『flag: false』と設定している。 -->
-    <p>flag is {{ flag }}</p>
-    <p>!flag is {{ !flag }}</p>
-    <button @click="flag = !flag">open menu</button>
-    <!-- マスクがアクティブな状態。マスクをクリックするとマスクを隠したい。 -->
-    <!-- で、ここで驚きは、クリックすると全ての状態が逆スイッチ押されることになる。 -->
-    <div class="mask" :class="{ active: flag }" @click="flag = !flag"></div>
-    <nav :class="{ active: flag }">
-      <ul >
-        <li><a href="">menu1</a></li>
-        <li><a href="">menu2</a></li>
-        <li><a href="">menu3</a></li>
-      </ul>
-      <!-- maskと同じようにメニューのボタンをクリックしたら逆スイッチを起動する。 -->
-      <button @click="flag = !flag">close</button>
-    </nav>
+    <p>dataオプションの変数firstNameの中身 => "{{ firstName }}"</p>
+    <p>メソッド定義 fullName()メソッドは返す => {{ fullName() }}</p>
+    <p>コンピューテッドは => {{ fullNameComputed }}</p>
+    <p>メソッド定義 now()メソッドは返す =>{{ now() }}</p>
+    <p>コンピューテッドは => {{ nowComputed }}</p>
+    <!-- ボタンをクリックしてHTML上の表示を変えてみる。 -->
+    <!-- メソッド定義では、可変の値はその都度変更される。 -->
+    <button @click="count++">{{ count }}</button>
   </div>
 </body>
 

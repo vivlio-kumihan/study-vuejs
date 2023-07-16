@@ -393,3 +393,63 @@ __Vue.js版　モーダルウィンドウを作成するために元になるコ
   </nav>
 </div>
 ```
+
+## Vue.jsのmethodとcomputedについて解説！ methodsの違いとは？ キャッシュしてくれるとは？
+
+```html
+<body>  
+  <div id="app" class="app">
+    <p>dataオプションの変数firstNameの中身 => "{{ firstName }}"</p>
+    <p>メソッド定義 fullName()メソッドは返す => {{ fullName() }}</p>
+    <p>コンピューテッドは => {{ fullNameComputed }}</p>
+    <p>メソッド定義 now()メソッドは返す =>{{ now() }}</p>
+    <p>コンピューテッドは => {{ nowComputed }}</p>
+    <!-- ボタンをクリックしてHTML上の表示を変えてみる。 -->
+    <!-- メソッド定義では、可変の値はその都度変更される。 -->
+    <button @click="count++">{{ count }}</button>
+  </div>
+```
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      firstName: 'Nobuyuki',
+      lastName: 'Takahiro',
+      count: 0
+    }
+  },
+  // メソッド定義に関わりのないHTMLでの動きで
+  // 都度値は変更される。
+  // 使い所を考える必要があり。
+  methods: {
+    fullName() {
+      return this.firstName + ' ' + this.lastName
+    },
+    now() {
+      return new Date()
+    }
+  },
+  // 最初にHTMLをロードしたら、次にロードし直すまで
+  // 状態は変更されない。
+  // 引数は渡せない。
+  computed: {
+    fullNameComputed() {
+      return this.firstName + ' ' + this.lastName
+    },
+    nowComputed() {
+      return new Date()
+    }
+  },
+  // method、computedともmountedから呼び出せる。
+  mounted() {
+    console.log(this.now())
+    console.log(this.fullName())
+    console.log(this.nowComputed)
+    console.log(this.fullNameComputed)
+  }
+}).mount('#app')
+```
+
+## 条件付きレンダリング　v-if, v-show. 条件に応じて表示を切替
+
