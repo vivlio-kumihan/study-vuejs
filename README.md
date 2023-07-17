@@ -453,3 +453,183 @@ Vue.createApp({
 
 ## 条件付きレンダリング　v-if, v-show. 条件に応じて表示を切替
 
+### 01 v-if, v-show
+
+```html
+  <div id="app" class="app">
+    <!-- toggleスイッチの書き方を覚えること。 -->
+    <!-- 『もっと見る』で使えるそうだ。確認すること。 -->
+    <button @click="isShow = !isShow">toggle switch</button>
+    <!-- data()オプションのisShow属性の値（true or false）が入る。 -->
+    <!-- v-if => その存在を消す。コメントアウトになる。 -->
+    <p v-if="isShow">組版.com</p>
+    <p v-show="isShow">組版.com</p>
+  </div>
+```
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      isShow: false
+    }
+  }
+}).mount('#app')
+```
+
+### 02 v-if, v-else-if, v-else 
+
+```html
+<div id="app" class="app">
+  <div class="wrapper">
+    <!-- toggleスイッチの書き方を覚えること。 -->
+    <!-- 『もっと見る』で使えるそうだ。確認すること。 -->
+    <button @click="isShow = !isShow">toggle switch</button>
+    <!-- data()オプションのisShow属性の値（true or false）が入る。 -->
+    <!-- v-if => その存在を消す。コメントアウトになる。 -->
+    <p v-if="isShow">組版.com</p>
+    <p v-else>kumihan.co</p>
+  </div>
+  <div class="wrapper">
+    <button @click="count++">{{ count }}</button>
+    <p v-if="count % 3 === 0">Vue.js</p>
+    <p v-else-if="count % 3 === 1">GSAP</p>
+    <p v-else>HTML, CSS</p>
+  </div>
+  <div class="wrapper">
+    <button @click="count++">{{ count }}</button>
+    <tmplate v-if="count % 3 === 0">
+      <p>Vue.js</p>
+    </tmplate>
+    <template v-else-if="count % 3 === 1">
+      <p>GSAP</p>
+    </template>
+    <template v-else>
+      <p>HTML, CSS</p>
+    </template>
+  </div>
+</div>
+```
+
+## v-html
+
+外部ファイルから読み込んできたインスタンスにHTMLが含まれる場合の対処で使うことがある。
+
+```html
+  <div id="app">
+    <!-- ショートハンドはマスタッシュの書き方 -->
+    <!-- <p>{{ text }}</p> -->
+    <!-- XSSの防止。タグを埋め込んだ変数をやり取りするなら『v-text』 -->
+    <p v-text="text"></p>
+    <!-- HTMLとして埋め込みたければ『v-html』 -->
+    <p v-html="text"></p>
+  </div>
+```
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      text: "<a href='#'>hello anchor</a>",
+    }
+  }
+}).mount('#app')
+```
+
+## v-for
+
+#### v-forに至る元の考え方
+
+```html
+<div id="app">
+  <!-- <ul>
+    <li>{{ arr[0]}}</li>
+    <li>{{ arr[1]}}</li>
+    <li>{{ arr[2]}}</li>
+  </ul> -->
+```
+
+#### v-forで回す
+
+```html
+  <ul>
+    <li v-for="(ins, idx) in arr">
+      {{ idx }} => {{ ins }}
+    </li>
+  </ul>
+```
+
+#### v-vind:keyを付ける
+
+`v-for`を設定するときは必ず`:key="fruit"`をつける。
+この場合だと、値が増える度に再度全てを描写し直すから。
+
+```html
+  <ul>
+    <button @click="addFruit">クリックしたら種類を増やす</button>
+    <li v-for="(ins, idx) in fruit" v-vind:key="fruit">
+      {{ idx }} => {{ ins }}
+    </li>
+  </ul>
+
+  <ul>
+    <button @click="removeFruit">クリックしたら種類を減らす</button>
+    <li v-for="(ins, idx) in fruit" :key="fruit">
+      {{ idx }} => {{ ins }}
+    </li>
+  </ul>
+```
+
+#### `Ruby`の`.times`みたいなことができる
+
+```html
+  <ul>
+    <li v-for="n in times">
+      {{ n }}つ目のリスト
+    </li>
+  </ul>
+```
+
+#### hashを回す
+
+```html
+  <dl v-for="(val, key, idx) in family" :key="key">
+    <dt>{{ idx + 1 }}. {{ key }}</dt>
+    <dd>名前：{{ val.name }}</dd>
+    <dd>年齢：{{ val.age }}才</dd>
+  </dl>
+</div>
+```
+
+### JavaScript
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      arr: ['信之', '和恵', '茉李'],
+      fruit: ['apple', 'banana', 'orange'],
+      times: 5,
+      family: {
+        '父親': { name: '信之', age: '58' },
+        '母親': { name: '和恵', age: '53' },
+        '娘': { name: '茉李', age: '26' },
+      }
+    }
+  },
+  methods: {
+    addFruit() {
+      return this.fruit.push('grapefruit')
+    },
+    removeFruit() {
+      return this.fruit.splice(1, 1)
+    },
+    now() {
+      return new Date()
+    }
+  },
+  mounted() {
+    console.log(this.now())
+  }
+}).mount('#app')
+```

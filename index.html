@@ -14,15 +14,46 @@
 </head>
 
 <body>  
-  <div id="app" class="app">
-    <p>dataオプションの変数firstNameの中身 => "{{ firstName }}"</p>
-    <p>メソッド定義 fullName()メソッドは返す => {{ fullName() }}</p>
-    <p>コンピューテッドは => {{ fullNameComputed }}</p>
-    <p>メソッド定義 now()メソッドは返す =>{{ now() }}</p>
-    <p>コンピューテッドは => {{ nowComputed }}</p>
-    <!-- ボタンをクリックしてHTML上の表示を変えてみる。 -->
-    <!-- メソッド定義では、可変の値はその都度変更される。 -->
-    <button @click="count++">{{ count }}</button>
+  <div id="app">
+    <!-- v-forに至る元の考え方 -->
+    <!-- <ul>
+      <li>{{ arr[0]}}</li>
+      <li>{{ arr[1]}}</li>
+      <li>{{ arr[2]}}</li>
+    </ul> -->
+
+    <ul>
+      <li v-for="(ins, idx) in arr">
+        {{ idx }} => {{ ins }}
+      </li>
+    </ul>
+
+    <ul>
+      <!-- v-forを設定するときは:key="fruit"をつける。
+            この場合だと、値が増える度に再度全てを描写し直すから。 -->
+      <button @click="addFruit">クリックしたら種類を増やす</button>
+      <li v-for="(ins, idx) in fruit" :key="fruit">
+        {{ idx }} => {{ ins }}
+      </li>
+    </ul>
+
+    <ul>
+      <button @click="removeFruit">クリックしたら種類を減らす</button>
+      <li v-for="(ins, idx) in fruit" :key="fruit">
+        {{ idx }} => {{ ins }}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="n in times">
+        {{ n }}つ目のリスト
+      </li>
+    </ul>
+    <dl v-for="(val, key, idx) in family" :key="key">
+      <dt>{{ idx + 1 }}. {{ key }}</dt>
+      <dd>名前：{{ val.name }}</dd>
+      <dd>年齢：{{ val.age }}才</dd>
+    </dl>
   </div>
 </body>
 
