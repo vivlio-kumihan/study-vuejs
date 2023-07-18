@@ -14,46 +14,15 @@
 </head>
 
 <body>  
-  <div id="app">
-    <!-- v-forに至る元の考え方 -->
-    <!-- <ul>
-      <li>{{ arr[0]}}</li>
-      <li>{{ arr[1]}}</li>
-      <li>{{ arr[2]}}</li>
-    </ul> -->
-
+  <div id="app" class="app">
+    <p>{{ fruits }}</p>
     <ul>
-      <li v-for="(ins, idx) in arr">
-        {{ idx }} => {{ ins }}
+      <li v-for="fruit in fruits" :key="fruit.name">{{ fruit.name  }}
+        <ul>
+          <p v-for="opt in fruit.option" :key="opt">{{ opt.size }} => {{ opt.price }}円</p>
+        </ul>
       </li>
     </ul>
-
-    <ul>
-      <!-- v-forを設定するときは:key="fruit"をつける。
-            この場合だと、値が増える度に再度全てを描写し直すから。 -->
-      <button @click="addFruit">クリックしたら種類を増やす</button>
-      <li v-for="(ins, idx) in fruit" :key="fruit">
-        {{ idx }} => {{ ins }}
-      </li>
-    </ul>
-
-    <ul>
-      <button @click="removeFruit">クリックしたら種類を減らす</button>
-      <li v-for="(ins, idx) in fruit" :key="fruit">
-        {{ idx }} => {{ ins }}
-      </li>
-    </ul>
-
-    <ul>
-      <li v-for="n in times">
-        {{ n }}つ目のリスト
-      </li>
-    </ul>
-    <dl v-for="(val, key, idx) in family" :key="key">
-      <dt>{{ idx + 1 }}. {{ key }}</dt>
-      <dd>名前：{{ val.name }}</dd>
-      <dd>年齢：{{ val.age }}才</dd>
-    </dl>
   </div>
 </body>
 

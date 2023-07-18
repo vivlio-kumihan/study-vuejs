@@ -633,3 +633,53 @@ Vue.createApp({
   }
 }).mount('#app')
 ```
+
+## v-forの中でv-forを回す
+
+簡単な例を使って暗誦する。
+- objectの書き方をまずは覚える。
+- v-forの書き方を覚える。
+
+```js
+Vue.createApp({
+  data() {
+    return {
+      fruits: [{
+        name: 'apple',
+        option: [
+          { size: 'large', price: 200 },
+          { size: 'middle', price: 150 },
+          { size: 'small', price: 100 }
+        ]
+      }, {
+        name: 'banana',
+        option: [
+          { size: 'large', price: 300 },
+          { size: 'middle', price: 350 },
+          { size: 'small', price: 200 }
+        ]
+      }, {
+        name: 'orange',
+        option: [
+          { size: 'large', price: 400 },
+          { size: 'middle', price: 450 },
+          { size: 'small', price: 300 }
+        ]
+      }]
+    }
+  }
+}).mount('#app')
+```
+
+```html
+<div id="app" class="app">
+  <p>{{ fruits }}</p>
+  <ul>
+    <li v-for="fruit in fruits" :key="fruit.name">{{ fruit.name  }}
+      <ul>
+        <p v-for="opt in fruit.option" :key="opt">{{ opt.size }} => {{ opt.price }}円</p>
+      </ul>
+    </li>
+  </ul>
+</div>
+```
