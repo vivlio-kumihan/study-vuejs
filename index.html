@@ -15,14 +15,15 @@
 
 <body>  
   <div id="app" class="app">
-    <p>{{ fruits }}</p>
-    <ul>
-      <li v-for="fruit in fruits" :key="fruit.name">{{ fruit.name  }}
-        <ul>
-          <p v-for="opt in fruit.option" :key="opt">{{ opt.size }} => {{ opt.price }}円</p>
-        </ul>
-      </li>
-    </ul>
+    <button @click="count += 2">button</button>
+    <p>{{ count }}</p>
+
+    <!-- オブジェクトを操作する際の注意 -->
+    <!-- <button @click="info.name = '和恵'">button</button>
+    <p>{{ info.name }}</p> -->
+    
+    <button @click="info.name = '和恵'">button</button>
+    <p>{{ info.name }}</p>
   </div>
 </body>
 
