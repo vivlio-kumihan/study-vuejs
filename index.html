@@ -15,15 +15,32 @@
 
 <body>  
   <div id="app" class="app">
-    <button @click="count += 2">button</button>
-    <p>{{ count }}</p>
-
-    <!-- オブジェクトを操作する際の注意 -->
-    <!-- <button @click="info.name = '和恵'">button</button>
-    <p>{{ info.name }}</p> -->
+    <!-- type="text"はデフォルト。だから消しておく。 -->
+    <!-- v-modelが作動中。value="hoge"を書いても反映されない。なので消しておく。 -->
+    <input v-model="name">
+    <p>{{ name }}</p>
     
-    <button @click="info.name = '和恵'">button</button>
-    <p>{{ info.name }}</p>
+    <!-- この状態で入力枠内を編集するとp要素にあるマスタッシュ内の値が変化する。 -->
+    <input v-model="name">
+    <p>{{ name }}</p>
+
+    <input v-model="number">
+    <p>{{ number }}</p>
+    
+    <input v-model="passWord" type="password">
+    <p>{{ passWord }}</p>
+
+    <input v-model="time" type="time">
+    <p>{{ time }}</p>
+
+    <input v-model="range" type="range" min="1" max="100" step="1">
+    <p>{{ range }}</p>
+
+    <input v-model="range" type="range" min="1" max="100" step="1">
+    <p :style="{ fontSize: `${ range }px` }">{{ range }}</p>
+
+    <input v-model="color" type="color" class="color">
+    <p :style="{ backgroundColor: `${ color }`}">{{ color }}</p>
   </div>
 </body>
 

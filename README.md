@@ -752,3 +752,52 @@ Vue.createApp({
   }
 }).mount('#app')
 ```
+
+## v-model input要素
+
+```html
+<div id="app" class="app">
+  <!-- type="text"はデフォルト。だから消しておく。 -->
+  <!-- v-modelが作動中。value="hoge"を書いても反映されない。なので消しておく。 -->
+  <input v-model="name">
+  <p>{{ name }}</p>
+  <!-- この状態で入力枠内を編集するとp要素にあるマスタッシュ内の値が変化する。 -->
+  <input v-model="name">
+  <p>{{ name }}</p>
+  <!-- 数値 -->
+  <input v-model="number">
+  <p>{{ number }}</p>
+  <!-- パスワード -->
+  <input v-model="passWord" type="password">
+  <p>{{ passWord }}</p>
+  <!-- 時間 -->
+  <input v-model="time" type="time">
+  <p>{{ time }}</p>
+  <!-- 範囲 -->
+  <input v-model="range" type="range" min="1" max="100" step="1">
+  <p>{{ range }}</p>
+  <!-- 可変な変数を使って要素を操作する。書体の大きさを変化せさる。 -->
+  <input v-model="range" type="range" min="1" max="100" step="1">
+  <p :style="{ fontSize: `${ range }px` }">{{ range }}</p>
+  <!-- 可変な変数を使って要素を操作する。書体の色を変化せさる。 -->
+  <input v-model="color" type="color">
+  <p :style="{ backgroundColor: `${ color }`}">{{ color }}</p>
+</div>
+```
+
+```js
+const app = ({
+  data() {
+    return {
+      name: 'takahiro',
+      number: 6503,
+      passWord: 'shadow123',
+      time: '13:31',
+      range: 100,
+      color: '#ddd'
+    }
+  }
+})
+
+Vue.createApp(app).mount('#app')
+```
