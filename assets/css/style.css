@@ -184,4 +184,9 @@ form, div, dl, dt {
   resize: vertical;
   background-color: #fff;
   border-radius: 5px;
+}
+.textarea-learn button {
+  margin-top: 15px;
+  font-size: 15px;
+  border: none;
 }/*# sourceMappingURL=style.css.map */

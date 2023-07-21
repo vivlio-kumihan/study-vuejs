@@ -1099,3 +1099,27 @@ Vue.createApp(app).mount('#app')
   </dl>
 </form>
 ```
+
+## formで必須項目・入力例などを実装 required, placeholder, value
+
+必須項目
+- 適宜、`input`要素に`require`属性をつける。
+- 入力支援として適宜`placeholder`属性を使う。
+- `value`属性をJSで操作するらしい。どんな用途でつかのか？
+
+```html
+<form action="" method="post" class="textarea-learn">
+  <dl>
+    <dt><label for="name">お名前</label></dt>
+    <dd><input type="text" id="name" value="" placeholder="you name" required></dd>
+    <dt><label for="department">所属</label></dt>
+    <dd><input type="text" id="department"value="prepress"></dd>
+    <dt><label for="contact">ご意見・ご感想</label></dt>
+    <dd>
+      <textarea name="" id="contact" value=""></textarea>
+    </dd>
+  </dl>
+  <button type="submit">送信</button>
+</form>
+```
+
