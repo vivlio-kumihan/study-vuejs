@@ -777,7 +777,7 @@ Vue.createApp({
   <input v-model="range" type="range" min="1" max="100" step="1">
   <p>{{ range }}</p>
   <!-- 可変な変数を使って要素を操作する。書体の大きさを変化せさる。 -->
-  <input v-model="range" type="range" min="1" max="100" step="1">
+ <input v-model="range" type="range" min="1" max="100" step="1">
   <p :style="{ fontSize: `${ range }px` }">{{ range }}</p>
   <!-- 可変な変数を使って要素を操作する。書体の色を変化せさる。 -->
   <input v-model="color" type="color">
@@ -798,6 +798,215 @@ const app = ({
     }
   }
 })
+Vue.createApp(app).mount('#app')
+```
 
+## form
+
+### 属性について
+- `action` => データの送信先
+- `method` => `post` と `get`
+- `name` => 任意で名前はつけられる。JSからの操作で鍵になる。
+
+```html
+<form action="" method="" name="contact">
+  <!-- テキスト入力欄 -->
+  <input type="text">
+  <button type="submit">send now</button>
+  <input type="submit" value="send now">
+</form>
+```
+
+### formのフォーマット
+
+```html
+<form action="" method="" name="contact">
+  <dl>
+    <div>
+      <dt>お名前</dt>
+      <dd><input type="text"></dd>
+    </div>
+    <div>
+      <dt>お名前</dt>
+      <dd><input type="text"></dd>
+    </div>
+  </dl>
+  <button type="submit">send now</button>
+</form>
+```
+
+## form実践
+
+属性値　hidden
+ipアドレスの入力を隠して、ユーザーが送信と同時に送る
+
+属性値　reset
+hoverしたらポインターが指に変わる。
+計算ソフトで使えそう。
+
+属性値　date
+ブラウザによって実装が違うので場所を選ぶ。
+
+```html  
+<div id="app" class="app">
+  <form action="" method="post">
+    <dl>
+      <div>
+        <dt>name</dt>
+        <dd><input type="text"></dd>
+      </div>
+      <div>
+        <dt>age</dt>
+        <dd><input type="number"></dd>
+      </div>
+      <div>
+        <dt>tel</dt>
+        <dd><input type="tel"></dd>
+      </div>
+      <div>
+        <dt>password</dt>
+        <dd><input type="password"></dd>
+      </div>
+      <div>
+        <!-- ヴァリデーションをブラウザがかけてくれる。 -->
+        <dt>e-mail</dt>
+        <dd><input type="email"></dd>
+      </div>
+      <div>
+        <dt>search</dt>
+        <dd><input type="search"></dd>
+      </div>
+      <div class="fader-wrapper">
+        <dt>range</dt>
+        <dd>
+          <input v-model="range" type="range" min="1" max="50" step="1" class="fader">
+          <p :style="{ fontSize: `${ range }px` }">{{ range }}<small>px</small></p>
+        </dd>
+      </div>
+      <div>
+        <dt>file</dt>
+        <dd><input type="file"></dd>
+      </div>
+      <div class="hidden">
+        <dt>hidden</dt>
+        <dd><input type="hidden"></dd>
+      </div>
+      <div>
+        <dt>reset</dt>
+        <dd><input type="reset"></dd>
+      </div>
+      <div>
+        <dt>date</dt>
+        <dd><input type="date"></dd>
+      </div>
+      <div class="color">
+        <dt>color</dt>
+        <dd>
+          <input v-model="color" type="color">
+          <p :style="{ color: `${ color }`}">{{ color }}</p>
+        </dd>
+      </div>
+    </dl>
+    <button type="submit">send</button>
+  </form>
+</div>
+```
+
+```scss
+@use "../forwards" as fw
+
+form, div, dl, dt
+  font-size: .75rem
+  font-weight: 900
+  letter-spacing: .07em
+  text-transform: uppercase
+  
+.app
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-top: 50px
+  form
+    width: 50%
+    padding: 30px
+    text-align: center
+    background-color: #eee
+    border-radius: 5px
+    div
+      display: flex
+      align-items: center
+      background-color: #aaa 
+      border-radius: 5px
+    dl
+      div
+        dt
+          width: 30%
+          text-align: center
+        dd
+          width: 70%
+          input
+            width: 100%
+            text-align: left
+            text-transform: none
+            border-top-left-radius: unset
+            border-bottom-left-radius: unset
+        &.fader-wrapper
+          padding: 15px 7px
+          .fader
+            -webkit-appearance: none // これ無しだとスタイルがほぼ全く反映されないので注意
+            appearance: none
+            cursor: pointer // カーソルを分かりやすく
+            background: #c2dff6 // バーの背景色
+            height: 14px // バーの高さ
+            width: 100% // スライダーの幅
+            border-radius: 10px // バーの端の丸み
+            border: solid 3px #e2effa // バーまわりの線
+            outline: 0 // アウトラインを消して代わりにfocusのスタイルをあてる
+            &::-webkit-slider-thumb
+              +fw.slider-thumb
+              -webkit-appearance: none // デフォルトのつまみのスタイルを解除
+            &::-moz-range-thumb
+              +fw.slider-thumb
+              border: none
+        p
+          margin: 0
+        + div
+          margin-top: 20px
+      .hidden
+        height: 40px
+      .color
+        dd
+          height: 60px
+          input
+            padding: 5% 15%
+            height: 100%
+          p
+            margin-top: 10px
+            font-size: 1.5rem
+  input, button
+    padding: 10px 20px
+    background-color: #fff
+    border-radius: 5px
+  button
+    margin-top: 50px
+    font-size: 1.1rem
+    color: #fff
+    background-color: #79b5ed
+    &:hover
+      opacity: .7
+  p
+    line-height: 1
+    margin: 10px 0 30px
+```
+
+```js
+const app = ({
+  data() {
+    return {
+      range: 50,
+      color: '#555'
+    }
+  }
+})
 Vue.createApp(app).mount('#app')
 ```

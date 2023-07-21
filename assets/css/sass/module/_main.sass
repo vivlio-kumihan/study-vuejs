@@ -1,19 +1,84 @@
+@use "../forwards" as fw
+
+form, div, dl, dt
+  font-size: .75rem
+  font-weight: 900
+  letter-spacing: .07em
+  text-transform: uppercase
+  
 .app
   display: flex
   flex-direction: column
   align-items: center
   padding-top: 50px
-  font-size: 1rem
-  input
-    padding: 10px 20px
+  form
+    width: 50%
+    padding: 30px
+    text-align: center
     background-color: #eee
     border-radius: 5px
-    &.color
-      width: 100px
-      height: 100px
-      padding: 0
-      border-radius: 50%
-      
+    div
+      display: flex
+      align-items: center
+      background-color: #aaa 
+      border-radius: 5px
+    dl
+      div
+        dt
+          width: 30%
+          text-align: center
+        dd
+          width: 70%
+          input
+            width: 100%
+            text-align: left
+            text-transform: none
+            border-top-left-radius: unset
+            border-bottom-left-radius: unset
+        &.fader-wrapper
+          padding: 15px 7px
+          .fader
+            -webkit-appearance: none // これ無しだとスタイルがほぼ全く反映されないので注意
+            appearance: none
+            cursor: pointer // カーソルを分かりやすく
+            background: #c2dff6 // バーの背景色
+            height: 14px // バーの高さ
+            width: 100% // スライダーの幅
+            border-radius: 10px // バーの端の丸み
+            border: solid 3px #e2effa // バーまわりの線
+            outline: 0 // アウトラインを消して代わりにfocusのスタイルをあてる
+            &::-webkit-slider-thumb
+              +fw.slider-thumb
+              -webkit-appearance: none // デフォルトのつまみのスタイルを解除
+            &::-moz-range-thumb
+              +fw.slider-thumb
+              border: none
+        p
+          margin: 0
+        + div
+          margin-top: 20px
+      .hidden
+        height: 40px
+      .color
+        dd
+          height: 60px
+          input
+            padding: 5% 15%
+            height: 100%
+          p
+            margin-top: 10px
+            font-size: 1.5rem
+  input, button
+    padding: 10px 20px
+    background-color: #fff
+    border-radius: 5px
+  button
+    margin-top: 50px
+    font-size: 1.1rem
+    color: #fff
+    background-color: #79b5ed
+    &:hover
+      opacity: .7
   p
     line-height: 1
     margin: 10px 0 30px

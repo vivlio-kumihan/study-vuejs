@@ -1,3 +1,7 @@
+/* Noto+Sans+JP gothic */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+/* font-family: 'Noto Sans JP', sans-serif; */
+/* font-weight: 400; <= 100 or 300 or 400 or 500 or 700 or 900 */
 html {
   font-size: 93.75%;
 }
@@ -8,23 +12,116 @@ body {
   color: #333;
 }
 
+small {
+  font-size: 0.6em;
+}
+
+form, div, dl, dt {
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
-  font-size: 1rem;
 }
-.app input {
-  padding: 10px 20px;
+.app form {
+  width: 50%;
+  padding: 30px;
+  text-align: center;
   background-color: #eee;
   border-radius: 5px;
 }
-.app input.color {
-  width: 100px;
-  height: 100px;
-  padding: 0;
+.app form div {
+  display: flex;
+  align-items: center;
+  background-color: #aaa;
+  border-radius: 5px;
+}
+.app form dl div dt {
+  width: 30%;
+  text-align: center;
+}
+.app form dl div dd {
+  width: 70%;
+}
+.app form dl div dd input {
+  width: 100%;
+  text-align: left;
+  text-transform: none;
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+}
+.app form dl div.fader-wrapper {
+  padding: 15px 7px;
+}
+.app form dl div.fader-wrapper .fader {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  cursor: pointer;
+  background: #c2dff6;
+  height: 14px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 3px #e2effa;
+  outline: 0;
+}
+.app form dl div.fader-wrapper .fader::-webkit-slider-thumb {
+  background: #79b5ed;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+  @cotent;
+  -webkit-appearance: none;
+}
+.app form dl div.fader-wrapper .fader::-moz-range-thumb {
+  background: #79b5ed;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+  @cotent;
+  border: none;
+}
+.app form dl div p {
+  margin: 0;
+}
+.app form dl div + div {
+  margin-top: 20px;
+}
+.app form dl .hidden {
+  height: 40px;
+}
+.app form dl .color dd {
+  height: 60px;
+}
+.app form dl .color dd input {
+  padding: 5% 15%;
+  height: 100%;
+}
+.app form dl .color dd p {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+.app input, .app button {
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.app button {
+  margin-top: 50px;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #79b5ed;
+}
+.app button:hover {
+  opacity: 0.7;
 }
 .app p {
   line-height: 1;

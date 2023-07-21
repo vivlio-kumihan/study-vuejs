@@ -15,32 +15,66 @@
 
 <body>  
   <div id="app" class="app">
-    <!-- type="text"はデフォルト。だから消しておく。 -->
-    <!-- v-modelが作動中。value="hoge"を書いても反映されない。なので消しておく。 -->
-    <input v-model="name">
-    <p>{{ name }}</p>
-    
-    <!-- この状態で入力枠内を編集するとp要素にあるマスタッシュ内の値が変化する。 -->
-    <input v-model="name">
-    <p>{{ name }}</p>
-
-    <input v-model="number">
-    <p>{{ number }}</p>
-    
-    <input v-model="passWord" type="password">
-    <p>{{ passWord }}</p>
-
-    <input v-model="time" type="time">
-    <p>{{ time }}</p>
-
-    <input v-model="range" type="range" min="1" max="100" step="1">
-    <p>{{ range }}</p>
-
-    <input v-model="range" type="range" min="1" max="100" step="1">
-    <p :style="{ fontSize: `${ range }px` }">{{ range }}</p>
-
-    <input v-model="color" type="color" class="color">
-    <p :style="{ backgroundColor: `${ color }`}">{{ color }}</p>
+    <form action="" method="post">
+      <dl>
+        <div>
+          <dt>name</dt>
+          <dd><input type="text"></dd>
+        </div>
+        <div>
+          <dt>age</dt>
+          <dd><input type="number"></dd>
+        </div>
+        <div>
+          <dt>tel</dt>
+          <dd><input type="tel"></dd>
+        </div>
+        <div>
+          <dt>password</dt>
+          <dd><input type="password"></dd>
+        </div>
+        <div>
+          <!-- ヴァリデーションをブラウザがかけてくれる。 -->
+          <dt>e-mail</dt>
+          <dd><input type="email"></dd>
+        </div>
+        <div>
+          <dt>search</dt>
+          <dd><input type="search"></dd>
+        </div>
+        <div class="fader-wrapper">
+          <dt>range</dt>
+          <dd>
+            <input v-model="range" type="range" min="1" max="50" step="1" class="fader">
+            <p :style="{ fontSize: `${ range }px` }">{{ range }}<small>px</small></p>
+          </dd>
+        </div>
+        <div>
+          <dt>file</dt>
+          <dd><input type="file"></dd>
+        </div>
+        <div class="hidden">
+          <dt>hidden</dt>
+          <dd><input type="hidden"></dd>
+        </div>
+        <div>
+          <dt>reset</dt>
+          <dd><input type="reset"></dd>
+        </div>
+        <div>
+          <dt>date</dt>
+          <dd><input type="date"></dd>
+        </div>
+        <div class="color">
+          <dt>color</dt>
+          <dd>
+            <input v-model="color" type="color">
+            <p :style="{ color: `${ color }`}">{{ color }}</p>
+          </dd>
+        </div>
+      </dl>
+      <button type="submit">send</button>
+    </form>
   </div>
 </body>
 
