@@ -15,18 +15,87 @@
 
 <body>  
   <div id="app" class="app">
-    <form action="" method="post" class="textarea-learn">
-      <dl>
-        <dt><label for="name">お名前</label></dt>
-        <dd><input type="text" id="name" value="" placeholder="you name" required></dd>
-        <dt><label for="department">所属</label></dt>
-        <dd><input type="text" id="department"value="prepress"></dd>
-        <dt><label for="contact">ご意見・ご感想</label></dt>
+    <form action="" method="post">
+      <dl class="radio-check">
+        <dt>radio botton</dt>
+        <div>
+          <dd>
+            <input type="radio" id="btn-one" name="radio">
+            <label for="btn-one">button1</label>
+          </dd>
+          <dd>
+            <input type="radio" id="btn-two" name="radio">
+            <label for="btn-two">button2</label>
+          </dd>
+        </div>
+        <dt>checkbox</dt>
         <dd>
-          <textarea name="" id="contact" value=""></textarea>
+          <input type="checkbox" id="hello">
+          <label for="hello">hello</label>
         </dd>
       </dl>
-      <button type="submit">送信</button>
+      <dl>
+        <div>
+          <dt>name</dt>
+          <dd><input type="text"></dd>
+        </div>
+        <div>
+          <dt>name</dt>
+          <dd><input type="text"></dd>
+        </div>
+        <div>
+          <dt>age</dt>
+          <dd><input type="number"></dd>
+        </div>
+        <div>
+          <dt>tel</dt>
+          <dd><input type="tel"></dd>
+        </div>
+        <div>
+          <dt>password</dt>
+          <dd><input type="password"></dd>
+        </div>
+        <div>
+          <!-- ヴァリデーションをブラウザがかけてくれる。 -->
+          <dt>e-mail</dt>
+          <dd><input type="email"></dd>
+        </div>
+        <div>
+          <dt>search</dt>
+          <dd><input type="search"></dd>
+        </div>
+        <div class="fader-wrapper">
+          <dt>range</dt>
+          <dd>
+            <input v-model="range" type="range" min="1" max="50" step="1" class="fader">
+            <p :style="{ fontSize: `${ range }px` }">{{ range }}<small>px</small></p>
+          </dd>
+        </div>
+        <div>
+          <dt>file</dt>
+          <dd><input type="file"></dd>
+        </div>
+        <div class="hidden">
+          <dt>hidden</dt>
+          <dd><input type="hidden"></dd>
+        </div>
+        <div>
+          <dt>reset</dt>
+          <dd><input type="reset"></dd>
+        </div>
+        <div>
+          <dt>date</dt>
+          <dd><input type="date"></dd>
+        </div>
+        <div class="color">
+          <dt>color</dt>
+          <dd>
+            <input v-model="color" type="color">
+            <p :style="{ color: `${ color }`}">{{ color }}</p>
+          </dd>
+        </div>
+      </dl>
+      <button type="submit">send</button>
     </form>
   </div>
 </body>

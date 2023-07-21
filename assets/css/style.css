@@ -1,7 +1,7 @@
 /* Noto+Sans+JP gothic */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100300400500700900&display=swap");
-/* font-family: 'Noto Sans JP', sans-serif */
-/* font-weight: 400 <= 100 or 300 or 400 or 500 or 700 or 900 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+/* font-family: 'Noto Sans JP', sans-serif; */
+/* font-weight: 400; <= 100 or 300 or 400 or 500 or 700 or 900 */
 button,
 input,
 select,
@@ -9,7 +9,7 @@ textarea {
   -webkit-appearance: auto;
   -moz-appearance: auto;
        appearance: auto;
-  border: 1px solid #333;
+  border-width: 1px;
 }
 
 html {
@@ -30,6 +30,7 @@ form, div, dl, dt {
   font-size: 0.75rem;
   font-weight: 900;
   letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .app {
@@ -122,6 +123,7 @@ form, div, dl, dt {
   padding: 10px 20px;
   background-color: #fff;
   border-radius: 5px;
+  border-width: 0;
 }
 .app button {
   margin-top: 50px;
@@ -137,56 +139,84 @@ form, div, dl, dt {
   margin: 10px 0 30px;
 }
 
-.app .checkbox-learn {
-  width: 50%;
+.app form .radio-check label {
+  position: relative;
 }
-.app .checkbox-learn dl dt {
-  font-weight: 900;
+.app form .radio-check input[type=checkbox] {
+  opacity: 0;
 }
-.app .checkbox-learn dl dd {
-  margin-left: 35%;
+.app form .radio-check input[type=checkbox]:checked + label::before,
+.app form .radio-check input[type=checkbox]:checked + label::after {
+  content: "";
 }
-.app .checkbox-learn dl dd label {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-  text-align: left;
+.app form .radio-check input[type=checkbox] + label::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -22px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #aaa;
+  border-radius: 3px;
 }
-.app .checkbox-learn .select-occupation {
-  margin-top: 50px;
+.app form .radio-check input[type=checkbox]:checked + label::after {
+  position: absolute;
+  top: 15%;
+  transform: translateY(-50%);
+  left: -20px;
+  width: 15px;
+  height: 10px;
+  border-left-width: 3px;
+  border-bottom-width: 3px;
+  transform: rotate(-45deg);
 }
-.app .checkbox-learn .select-occupation dd {
-  margin: 0;
-  padding-top: 20px;
+.app form .radio-check input[type=radio] {
+  opacity: 0;
 }
-.app .checkbox-learn .select-occupation dd label {
-  display: inline-block;
-  margin: 0;
+.app form .radio-check input[type=radio]:checked + label::before,
+.app form .radio-check input[type=radio]:checked + label::after {
+  content: "";
 }
-.app .checkbox-learn .select-occupation dd label:not(:last-of-type) {
-  margin-right: 20px;
+.app form .radio-check input[type=radio] + label::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -22px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #aaa;
+  border-radius: 50%;
 }
-
-.textarea-learn dl input, .textarea-learn dl textarea {
-  width: 100%;
-  padding: 20px;
-  text-align: left;
-  border: none;
+.app form .radio-check input[type=radio]:checked + label::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -18px;
+  width: 12px;
+  height: 12px;
+  background-color: #666;
+  border-radius: 50%;
 }
-.textarea-learn dl dt {
+.app form .radio-check dt, .app form .radio-check dd {
+  font-size: 15px;
   margin-bottom: 10px;
 }
-.textarea-learn dl dd {
+.app form .radio-check dd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  font-size: 20px;
 }
-.textarea-learn dl dd textarea {
-  height: 50vh;
-  resize: vertical;
-  background-color: #fff;
-  border-radius: 5px;
+.app form .radio-check div {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.textarea-learn button {
-  margin-top: 15px;
-  font-size: 15px;
-  border: none;
+.app form .radio-check div dd input {
+  width: 20px;
+  padding: 0;
 }/*# sourceMappingURL=style.css.map */

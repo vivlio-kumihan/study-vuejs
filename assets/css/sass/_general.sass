@@ -1,20 +1,18 @@
 @use "forwards" as fw
 
 /* Noto+Sans+JP gothic */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100300400500700900&display=swap')
-/* font-family: 'Noto Sans JP', sans-serif */
-/* font-weight: 400 <= 100 or 300 or 400 or 500 or 700 or 900 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap')
+/* font-family: 'Noto Sans JP', sans-serif; */
+/* font-weight: 400; <= 100 or 300 or 400 or 500 or 700 or 900 */
 
-// destyle.cssを使っている。
-// 特に『type="checkbox"』で難儀したので書いておく。
 button,
 input,
 select,
 textarea
   -webkit-appearance: auto
   appearance: auto
-  border: 1px solid #333
-  
+  border-width: 1px
+
 html 
   font-size: 93.75% 
 
@@ -25,5 +23,3 @@ body
 
 small
   font-size: .6em
-
-

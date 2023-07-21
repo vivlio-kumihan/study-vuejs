@@ -1,13 +1,11 @@
 @use "../forwards" as fw
 
-
-
 form, div, dl, dt
   font-size: .75rem
   font-weight: 900
   letter-spacing: .07em
-  // text-transform: uppercase
-
+  text-transform: uppercase
+  
 .app
   display: flex
   flex-direction: column
@@ -74,6 +72,7 @@ form, div, dl, dt
     padding: 10px 20px
     background-color: #fff
     border-radius: 5px
+    border-width: 0
   button
     margin-top: 50px
     font-size: 1.1rem
@@ -86,48 +85,86 @@ form, div, dl, dt
     margin: 10px 0 30px
 
 .app
-  .checkbox-learn
-    width: 50%
-    dl
-      dt
-        font-weight: 900
-      dd
-        margin-left: 35%
-        label
-          display: flex
-          align-items: center
-          margin-top: 20px
-          text-align: left
-    .select-occupation
-      margin-top: 50px
-      dd
-        margin: 0
-        padding-top: 20px
-        label
-          display: inline-block
-          margin: 0
-          &:not(:last-of-type)
-            margin-right: 20px
-            
-.textarea-learn
-  dl
-    input, textarea
-      width: 100%
-      padding: 20px
-      text-align: left
-      border: none
-    dt
-      margin-bottom: 10px
-    dd
-      margin-bottom: 20px
-      textarea
-        height: 50vh
-        resize: vertical
-        background-color: #fff
-        border-radius: 5px
-  button
-    margin-top: 15px
-    font-size: 15px
-    border: none
+  form
+    .radio-check
+      label
+        position: relative
+      input[type="checkbox"]
+        opacity: 0
+      // テストする。
+      // チェックするとラベルの前と後ろにaがつく。
+      input[type="checkbox"]:checked + label::before,
+      input[type="checkbox"]:checked + label::after
+        content: ''
+      // この仕組みを使って、
+      input[type="checkbox"] + label::before
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: -22px
+        content: ''
+        width: 20px
+        height: 20px
+        background-color: #aaa
+        border-radius: 3px
+      input[type="checkbox"]:checked + label::after
+        position: absolute
+        top: 15%
+        transform: translateY(-50%)
+        left: -20px
+        width: 15px
+        height: 10px
+        border-left-width: 3px
+        border-bottom-width: 3px
+        transform: rotate(-45deg)
 
-          
+      input[type="radio"]
+        opacity: 0
+      // テストする。
+      // チェックするとラベルの前と後ろにaがつく。
+      input[type="radio"]:checked + label::before,
+      input[type="radio"]:checked + label::after
+        content: ''
+      // この仕組みを使って、
+      input[type="radio"] + label::before
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: -22px
+        content: ''
+        width: 20px
+        height: 20px
+        background-color: #aaa
+        border-radius: 50%
+      input[type="radio"]:checked + label::after
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: -18px
+        width: 12px
+        height: 12px
+        background-color: #666
+        border-radius: 50%
+
+    .radio-check
+      dt, dd
+        font-size: 15px
+        margin-bottom: 10px
+      dd
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-bottom: 20px
+        font-size: 20px
+      div
+        background-color: transparent
+        display: flex
+        justify-content: center
+        align-items: center
+        dd
+          input
+            width: 20px
+            padding: 0
+
+
+

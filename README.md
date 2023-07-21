@@ -1123,3 +1123,89 @@ Vue.createApp(app).mount('#app')
 </form>
 ```
 
+## custom　radio button, check box 
+
+```html
+<dl class="radio-check">
+  <dt>radio botton</dt>
+  <div>
+    <dd>
+      <input type="radio" id="btn-one" name="radio">
+      <label for="btn-one">button1</label>
+    </dd>
+    <dd>
+      <input type="radio" id="btn-two" name="radio">
+      <label for="btn-two">button2</label>
+    </dd>
+  </div>
+  <dt>checkbox</dt>
+  <dd>
+    <input type="checkbox" id="hello">
+    <label for="hello">hello</label>
+  </dd>
+</dl>
+```
+
+```scss
+.app
+  form
+    .radio-check
+      label
+        position: relative
+      input[type="checkbox"]
+        opacity: 0
+      // テストする。
+      // チェックするとラベルの前と後ろにaがつく。
+      input[type="checkbox"]:checked + label::before,
+      input[type="checkbox"]:checked + label::after
+        content: ''
+      // この仕組みを使って、
+      input[type="checkbox"] + label::before
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: -22px
+        content: ''
+        width: 20px
+        height: 20px
+        background-color: #aaa
+        border-radius: 3px
+      input[type="checkbox"]:checked + label::after
+        position: absolute
+        top: 15%
+        transform: translateY(-50%)
+        left: -20px
+        width: 15px
+        height: 10px
+        border-left-width: 3px
+        border-bottom-width: 3px
+        transform: rotate(-45deg)
+
+      input[type="radio"]
+        opacity: 0
+      // テストする。
+      // チェックするとラベルの前と後ろにaがつく。
+      input[type="radio"]:checked + label::before,
+      input[type="radio"]:checked + label::after
+        content: ''
+      // この仕組みを使って、
+      input[type="radio"] + label::before
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: -22px
+        content: ''
+        width: 20px
+        height: 20px
+        background-color: #aaa
+        border-radius: 50%
+      input[type="radio"]:checked + label::after
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: -18px
+        width: 12px
+        height: 12px
+        background-color: #666
+        border-radius: 50%
+```
