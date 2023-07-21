@@ -1058,7 +1058,7 @@ Vue.createApp(app).mount('#app')
             margin-right: 20px
 ```
 
-## select
+## select要素
 
 - 最初から選択状態にしておくための`selected`属性
 - 選択肢をグループ化する`optgroup`要素
@@ -1077,5 +1077,25 @@ Vue.createApp(app).mount('#app')
       <option value="js">JavaScript</option>
     </optgroup>
   </select>
+</form>
+```
+
+## textarea
+
+- `input`要素 + `lavel`要素というHTML構造にして、`input`要素には`id`属性、`lavel`要素には`for`属性を同じ名称でつけユーザビリティを上げる。
+- `resize: vertical`のオプションは必須
+
+```html
+<form action="" method="post" class="textarea-learn">
+  <dl>
+    <dt><label for="name">お名前</label></dt>
+    <dd><input type="text" id="name" value=""></dd>
+    <dt><label for="department">所属</label></dt>
+    <dd><input type="text" id="department" value=""></dd>
+    <dt><label for="contact">ご意見・ご感想</label></dt>
+    <dd>
+      <textarea name="" id="contact" value=""></textarea>
+    </dd>
+  </dl>
 </form>
 ```

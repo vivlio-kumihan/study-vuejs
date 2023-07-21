@@ -165,4 +165,23 @@ form, div, dl, dt {
 }
 .app .checkbox-learn .select-occupation dd label:not(:last-of-type) {
   margin-right: 20px;
+}
+
+.textarea-learn dl input, .textarea-learn dl textarea {
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  border: none;
+}
+.textarea-learn dl dt {
+  margin-bottom: 10px;
+}
+.textarea-learn dl dd {
+  margin-bottom: 20px;
+}
+.textarea-learn dl dd textarea {
+  height: 50vh;
+  resize: vertical;
+  background-color: #fff;
+  border-radius: 5px;
 }/*# sourceMappingURL=style.css.map */

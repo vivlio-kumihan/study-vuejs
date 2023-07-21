@@ -15,19 +15,17 @@
 
 <body>  
   <div id="app" class="app">
-    <form action="" method="post" class="select-learn">
-      <select name="lang" id="">
-        <optgroup label="dep">
-          <option value="clang" selected>Clang</option>
-          <option value="java">Java</option>
-          <option value="python">Python</option>
-        </optgroup>
-        <optgroup label="front">
-          <option value="html">HTML</option>
-          <option value="css">CSS</option>
-          <option value="js">JavaScript</option>
-        </optgroup>
-      </select>
+    <form action="" method="post" class="textarea-learn">
+      <dl>
+        <dt><label for="name">お名前</label></dt>
+        <dd><input type="text" id="name" value=""></dd>
+        <dt><label for="department">所属</label></dt>
+        <dd><input type="text" id="department" value=""></dd>
+        <dt><label for="contact">ご意見・ご感想</label></dt>
+        <dd>
+          <textarea name="" id="contact" value=""></textarea>
+        </dd>
+      </dl>
     </form>
   </div>
 </body>
