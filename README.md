@@ -1057,3 +1057,25 @@ Vue.createApp(app).mount('#app')
           &:not(:last-of-type)
             margin-right: 20px
 ```
+
+## select
+
+- 最初から選択状態にしておくための`selected`属性
+- 選択肢をグループ化する`optgroup`要素
+
+```html
+<form action="" method="post" class="select-learn">
+  <select name="lang" id="">
+    <optgroup label="dep">
+      <option value="clang" selected>Clang</option>
+      <option value="java">Java</option>
+      <option value="python">Python</option>
+    </optgroup>
+    <optgroup label="front">
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="js">JavaScript</option>
+    </optgroup>
+  </select>
+</form>
+```

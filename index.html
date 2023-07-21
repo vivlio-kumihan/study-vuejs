@@ -15,33 +15,20 @@
 
 <body>  
   <div id="app" class="app">
-    <form action="" method="post" class="checkbox-learn">
-      <dl class="select-lang">
-        <dt>学んだことのある言語を選択してください</dt>
-        <dd>
-          <label for="html">
-            <input type="checkbox" id="html" name="select-lang" value="html" checked>HTML
-          </label>
-          <label for="css">
-            <input type="checkbox" id="css" name="select-lang" value="css">CSS
-          </label>
-          <label for="js">
-            <input type="checkbox" id="js" name="select-lang" value="js">JavaScript
-          </label>
-        </dd>
-      </dl>
-
-      <dl class="select-occupation">
-        <dt>希望する職種にチェックを入れてください</dt>
-        <dd>
-          <input type="radio" id="judge" name="occupation" value="judge" checked><label for="judge">判事</label>
-          <input type="radio" id="prosecutor" name="occupation" value="prosecutor"><label for="prosecutor">検察官</label>
-          <input type="radio" id="lawyer" name="occupation" value="lawyer"><label for="lawyer">弁護士</label>
-        </dd>
-      </dl>
-      
+    <form action="" method="post" class="select-learn">
+      <select name="lang" id="">
+        <optgroup label="dep">
+          <option value="clang" selected>Clang</option>
+          <option value="java">Java</option>
+          <option value="python">Python</option>
+        </optgroup>
+        <optgroup label="front">
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="js">JavaScript</option>
+        </optgroup>
+      </select>
     </form>
-
   </div>
 </body>
 
