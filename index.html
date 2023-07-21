@@ -15,66 +15,33 @@
 
 <body>  
   <div id="app" class="app">
-    <form action="" method="post">
-      <dl>
-        <div>
-          <dt>name</dt>
-          <dd><input type="text"></dd>
-        </div>
-        <div>
-          <dt>age</dt>
-          <dd><input type="number"></dd>
-        </div>
-        <div>
-          <dt>tel</dt>
-          <dd><input type="tel"></dd>
-        </div>
-        <div>
-          <dt>password</dt>
-          <dd><input type="password"></dd>
-        </div>
-        <div>
-          <!-- ヴァリデーションをブラウザがかけてくれる。 -->
-          <dt>e-mail</dt>
-          <dd><input type="email"></dd>
-        </div>
-        <div>
-          <dt>search</dt>
-          <dd><input type="search"></dd>
-        </div>
-        <div class="fader-wrapper">
-          <dt>range</dt>
-          <dd>
-            <input v-model="range" type="range" min="1" max="50" step="1" class="fader">
-            <p :style="{ fontSize: `${ range }px` }">{{ range }}<small>px</small></p>
-          </dd>
-        </div>
-        <div>
-          <dt>file</dt>
-          <dd><input type="file"></dd>
-        </div>
-        <div class="hidden">
-          <dt>hidden</dt>
-          <dd><input type="hidden"></dd>
-        </div>
-        <div>
-          <dt>reset</dt>
-          <dd><input type="reset"></dd>
-        </div>
-        <div>
-          <dt>date</dt>
-          <dd><input type="date"></dd>
-        </div>
-        <div class="color">
-          <dt>color</dt>
-          <dd>
-            <input v-model="color" type="color">
-            <p :style="{ color: `${ color }`}">{{ color }}</p>
-          </dd>
-        </div>
+    <form action="" method="post" class="checkbox-learn">
+      <dl class="select-lang">
+        <dt>学んだことのある言語を選択してください</dt>
+        <dd>
+          <label for="html">
+            <input type="checkbox" id="html" name="select-lang" value="html" checked>HTML
+          </label>
+          <label for="css">
+            <input type="checkbox" id="css" name="select-lang" value="css">CSS
+          </label>
+          <label for="js">
+            <input type="checkbox" id="js" name="select-lang" value="js">JavaScript
+          </label>
+        </dd>
       </dl>
-      <button type="submit">send</button>
+
+      <dl class="select-occupation">
+        <dt>希望する職種にチェックを入れてください</dt>
+        <dd>
+          <input type="radio" id="judge" name="occupation" value="judge" checked><label for="judge">判事</label>
+          <input type="radio" id="prosecutor" name="occupation" value="prosecutor"><label for="prosecutor">検察官</label>
+          <input type="radio" id="lawyer" name="occupation" value="lawyer"><label for="lawyer">弁護士</label>
+        </dd>
+      </dl>
+      
     </form>
+
   </div>
 </body>
 

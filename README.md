@@ -1010,3 +1010,50 @@ const app = ({
 })
 Vue.createApp(app).mount('#app')
 ```
+
+## checkbox, radio btn 
+
+- 属性`checked`を入れて最初からチェックされた状態にしておく。
+- `lavel`要素で`input`要素を囲むと、`lavel`要素の文字をクリックしても`input`要素を選択状態にできる。
+- `input`要素 + `lavel`要素というHTML構造にして、`input`要素には`id`属性、`lavel`要素には`for`属性を同じ名称でつけると上記と同じ効果を生成することができる。
+- `input`要素の`name`属性に同じ値を設定すると同じグループとして、値を内部的に動かす場合にシステムが認識する。
+- また、`name`属性に同じ値を設定する事で、選択肢のうち一つしかチェックできないようにすることができる。
+- DBに送信する中身は、`input`要素の`value`属性の値。
+- `input`要素の`id`属性・`value`属性と、`lavel`要素の`for`属性は統一して書くことをローカルルールとする。
+
+```html
+<dl class="select-occupation">
+  <dt>希望する職種にチェックを入れてください</dt>
+  <dd>
+    <input type="radio" id="judge" name="occupation" value="judge" checked><label for="judge">判事</label>
+    <input type="radio" id="prosecutor" name="occupation" value="prosecutor"><label for="prosecutor">検察官</label>
+    <input type="radio" id="lawyer" name="occupation" value="lawyer"><label for="lawyer">弁護士</label>
+  </dd>
+</dl>
+```
+
+```scss
+.app
+  .checkbox-learn
+    width: 50%
+    dl
+      dt
+        font-weight: 900
+      dd
+        margin-left: 35%
+        label
+          display: flex
+          align-items: center
+          margin-top: 20px
+          text-align: left
+    .select-occupation
+      margin-top: 50px
+      dd
+        margin: 0
+        padding-top: 20px
+        label
+          display: inline-block
+          margin: 0
+          &:not(:last-of-type)
+            margin-right: 20px
+```

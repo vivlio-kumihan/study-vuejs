@@ -1,7 +1,17 @@
 /* Noto+Sans+JP gothic */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
-/* font-family: 'Noto Sans JP', sans-serif; */
-/* font-weight: 400; <= 100 or 300 or 400 or 500 or 700 or 900 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100300400500700900&display=swap");
+/* font-family: 'Noto Sans JP', sans-serif */
+/* font-weight: 400 <= 100 or 300 or 400 or 500 or 700 or 900 */
+button,
+input,
+select,
+textarea {
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+       appearance: auto;
+  border: 1px solid #333;
+}
+
 html {
   font-size: 93.75%;
 }
@@ -20,7 +30,6 @@ form, div, dl, dt {
   font-size: 0.75rem;
   font-weight: 900;
   letter-spacing: 0.07em;
-  text-transform: uppercase;
 }
 
 .app {
@@ -126,4 +135,34 @@ form, div, dl, dt {
 .app p {
   line-height: 1;
   margin: 10px 0 30px;
+}
+
+.app .checkbox-learn {
+  width: 50%;
+}
+.app .checkbox-learn dl dt {
+  font-weight: 900;
+}
+.app .checkbox-learn dl dd {
+  margin-left: 35%;
+}
+.app .checkbox-learn dl dd label {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  text-align: left;
+}
+.app .checkbox-learn .select-occupation {
+  margin-top: 50px;
+}
+.app .checkbox-learn .select-occupation dd {
+  margin: 0;
+  padding-top: 20px;
+}
+.app .checkbox-learn .select-occupation dd label {
+  display: inline-block;
+  margin: 0;
+}
+.app .checkbox-learn .select-occupation dd label:not(:last-of-type) {
+  margin-right: 20px;
 }/*# sourceMappingURL=style.css.map */

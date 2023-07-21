@@ -1,11 +1,13 @@
 @use "../forwards" as fw
 
+
+
 form, div, dl, dt
   font-size: .75rem
   font-weight: 900
   letter-spacing: .07em
-  text-transform: uppercase
-  
+  // text-transform: uppercase
+
 .app
   display: flex
   flex-direction: column
@@ -82,3 +84,30 @@ form, div, dl, dt
   p
     line-height: 1
     margin: 10px 0 30px
+
+.app
+  .checkbox-learn
+    width: 50%
+    dl
+      dt
+        font-weight: 900
+      dd
+        margin-left: 35%
+        label
+          display: flex
+          align-items: center
+          margin-top: 20px
+          text-align: left
+    .select-occupation
+      margin-top: 50px
+      dd
+        margin: 0
+        padding-top: 20px
+        label
+          display: inline-block
+          margin: 0
+          &:not(:last-of-type)
+            margin-right: 20px
+            
+
+          
