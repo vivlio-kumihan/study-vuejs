@@ -1340,3 +1340,74 @@ const app = ({
 
 Vue.createApp(app).mount('#app')
 ```
+
+## 要素を取得するrefs
+
+```html
+<!-- mounted()関数を使って要素を取得してみる。 -->
+<body>
+  <div id="app" class="app">
+    <h1>タイトル</h1>
+  </div>
+</body>
+
+<!-- refsを使って要素を取得してみる。 -->
+<body>
+  <div id="app" class="app">
+    <h1 ref="headOne">タイトル</h1>
+
+    <ul>
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
+    </ul>
+
+    <ul>
+      <li v-for="i in 3" :key="i" ref="list">item{{ i }}</li>
+    </ul>
+  </div>
+</body>
+```
+
+```js
+// mounted()関数を使って要素を取得してみる
+const app = ({
+  data() {
+    return {
+      val: 'hello'
+    }
+  },
+  mounted() {
+    console.log(document.querySelector('h1'))
+  }
+})
+Vue.createApp(app).mount('#app')
+
+// refsを使ってみる。
+const app = ({
+  data() {
+    return {
+    }
+  },
+  mounted() {
+    console.log(this.$refs)
+    // => コンソールに情報が出力される。
+    // => Proxy(Object) { headOne: h1 }...
+    
+    console.log(this.$refs.headOne)
+    // => <h1>タイトル</h1>と出力される。
+    
+    // 属性の変更ができる。
+    this.$refs.headOne.style.color = 'red'
+    
+    // リストを取得
+    console.log(this.$refs.list)
+    
+    // リストの属性を変更してみる。
+    this.$refs.list.forEach(element => {
+      element.style.color = 'blue'
+    });
+  }
+})
+Vue.createApp(app).mount('#app')
+```

@@ -24,4 +24,23 @@ body {
 
 small {
   font-size: 0.6em;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+ul {
+  margin-top: 30px;
+}
+ul li + li {
+  margin-top: 20px;
 }/*# sourceMappingURL=style.css.map */

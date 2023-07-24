@@ -13,10 +13,27 @@
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 
+<!-- mounted()関数を使って要素を取得してみる。 -->
 <body>
   <div id="app" class="app">
-    <p>{{ count }}</p>
-    <button @click="countUp">count up!</button>
+    <h1>タイトル</h1>
+  </div>
+</body>
+
+<!-- refsを使って要素を取得してみる。 -->
+<body>
+  <div id="app" class="app">
+    <h1 ref="headOne">タイトル</h1>
+
+    <ul>
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
+    </ul>
+
+    <ul>
+      <li v-for="i in 3" :key="i" ref="list">item{{ i }}</li>
+    </ul>
   </div>
 </body>
 

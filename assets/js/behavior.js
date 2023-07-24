@@ -1,47 +1,42 @@
+// // mounted()関数を使って要素を取得してみる
+// const app = ({
+//   data() {
+//     return {
+//       val: 'hello'
+//     }
+//   },
+//   mounted() {
+//     console.log(document.querySelector('h1'))
+//   }
+// })
+
+// Vue.createApp(app).mount('#app')
+
 const app = ({
   data() {
     return {
-      count: 0
     }
-  },
-  methods: {
-    countUp() {
-      this.count++
-    }
-  },
-  beforeCreate() {
-    // Vue.jsを初期化する前に起動するメソッド
-    // Vueのインスタンスができる前で変数の初期化やeventListenerなどはない状態。
-    console.log('before create ')
-    console.log(this.count) // => undefineになる。
-  },
-  created() {
-    // Vue.jsが初期下した直後に起動するメソッド
-    console.log('created')
-    console.log(this.count) // => 0
-    // ただし、HTMLに紐づいていない状態。　
-    console.log(document.querySelector('p')) // => null
-  },
-  beforeMount() {
-    // Vue.jsのインスタンスがHTMLに紐づく直前。
-    console.log('before mount')
-    console.log(document.querySelector('p')) // => null
   },
   mounted() {
-    // HTMLにアクセスできる。
-    console.log('mounted')
-    console.log(document.querySelector('p')) // => <p>0</p>
-  },
-  // ボタンをクリックすると発火する直前。
-  // データがアップデートされる前に実行する。
-  beforeUpdate() {
-    console.log('before update')
-  },
-  // ボタンをクリックすると発火する直後。
-  // データがアップデートされた後に実行する。
-  updated() {
-    console.log('updated')
-  },
-})
+    console.log(this.$refs)
+    // => コンソールに情報が出力される。
+    // => Proxy(Object) { headOne: h1 }...
+    
+    console.log(this.$refs.headOne)
+    // => <h1>タイトル</h1>と出力される。
+    
+    // 属性の変更ができる。
+    this.$refs.headOne.style.color = 'red'
+    
+    // リストを取得
+    console.log(this.$refs.list)
+    
+    // リストの属性を変更してみる。
+    this.$refs.list.forEach(element => {
+      element.style.color = 'blue'
+    });
 
+
+  }
+})
 Vue.createApp(app).mount('#app')
