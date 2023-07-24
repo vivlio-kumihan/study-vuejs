@@ -24,13 +24,4 @@ body {
 
 small {
   font-size: 0.6em;
-}
-
-button {
-  opacity: 0.5;
-  pointer-events: none;
-}
-button.active {
-  opacity: 1;
-  pointer-events: auto;
 }/*# sourceMappingURL=style.css.map */

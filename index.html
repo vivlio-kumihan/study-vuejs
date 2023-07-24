@@ -13,47 +13,11 @@
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 
-<body id="app">
-  <!-- checkboxのオンオフと代入される値『真偽値』をHTMLに埋め込む。 -->
-  <!-- 真偽値を埋め込むことができるということは、if条件分岐を使った構造を作ることができるということ。 -->
-  <label for="check"><input id="check" type="checkbox" v-model="flag">同意する。</label>
-  <p>{{ flag }}</p>
-  <!-- 上でトグルスイッチを設置したので、ここでは、クラスを切り替えてボタンの状態を操作する。 -->
-  <button :class="{ active: flag }">送信できます。</button>
-
-  <div>
-    <!-- 5 times array 配列にする。-->
-    <template v-for="num in 5" :key="num">
-      <!-- checkboxの操作　複数選択ができる。 -->
-      <!-- v-modelを配列ageで初期化。 -->
-      <!-- v-bind:... => id, class, attributeに設定して属性値を変更することができる。 -->
-      <!-- :id, :class, :attribute-name -->
-      <!--  属性値の設定にはオブジェクトを使ったが、
-              直接変更するのなら式をクォートで区切って代入してやる方法あり。 -->
-      <input v-model="age" :id="num" type="checkbox" :value="num * 10">
-      <label :for="num">{{ num * 10 }}代</label>
-    </template>
-    <p>{{ age }}</p>
-    <!-- メソッドを送信できる。 -->
-    <!-- ただし、挙動に注意。
-          クリックする度に出力される配列をjoin(", ")メソッドで
-          値を『,』で区切り文字列として出力している。 -->
-    <p>{{ age.join(", ") }}</p>
-
-    <!-- radio button -->
-    <template v-for="area in areaList" :key="area">
-      <input v-model="checkedArea" type="radio" :id="area" :value="area">
-      <label :for="area">{{ area }}</label>
-    </template>
-    <p>{{ checkedArea }}</p>
-
-    <!-- select box -->
-    <select v-model="selectedArea">
-      <option disabled>選択してください。</option>
-      <option v-for="value in areaList" :key="value" :value="value">{{ value }}</option>
-    </select>
-    <p>{{ selectedArea }}</p>
+<body>
+  <div id="app" class="app">
+    <p>{{ count }}</p>
+    <button @click="countUp">count up!</button>
   </div>
 </body>
 
-</html> 
+</html>
