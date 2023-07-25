@@ -1,14 +1,64 @@
 @use "../forwards" as fw
 
 .app
-  display: flex
-  flex-direction: column
-  align-items: center
+  width: min(700px, 100%)
+  margin: 0 auto
   padding-top: 50px
-h1
-  font-size: 2rem
-  font-weight: 900
-ul
-  margin-top: 30px
-  li + li
-    margin-top: 20px
+main
+
+  button
+    margin-bottom: 20px
+    padding: 10px
+    font-weight: 900
+    color: #fff
+    background-color: blue
+    border: unset
+    border-radius: 5px
+    transition: .2s
+    &.active
+      opacity: .6
+  .vb-wrapper
+    margin-bottom: 50px
+    h2
+      margin: 20px 0
+      font-size: 2rem
+      font-weight: 900
+      line-height: 1
+    p
+      margin-bottom: 20px
+      font-size: 1.2rem
+      font-weight: 700
+      letter-spacing: .1em
+  .openedNum
+    margin: 0 0 20px
+    font-size: 1.2rem
+    font-weight: 900
+  .langList
+    dt, dd
+      padding: 15px
+    dt
+      display: flex
+      justify-content: space-between
+      align-items: center
+      cursor: pointer
+      // 文字が選択できなくなる属性
+      user-select: none
+      &.active::after
+        rotate: 180deg
+      &::after
+        content: '\f0d7'
+        font-family: 'Font Awesome 6 Free'
+        font-weight: 900
+        transition: .3 s
+      $colors: 'orange', 'lightblue', 'yellow'
+      @each $col in $colors
+        $idx : index($colors, $col)
+        &:nth-of-type(#{ $idx })
+          background-color: #{ $col }
+    dd
+      line-height: 1.5
+      background-color: #eee
+
+
+
+

@@ -13,28 +13,55 @@
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 
-<!-- mounted()関数を使って要素を取得してみる。 -->
-<body>
-  <div id="app" class="app">
-    <h1>タイトル</h1>
-  </div>
 </body>
-
-<!-- refsを使って要素を取得してみる。 -->
-<body>
   <div id="app" class="app">
-    <h1 ref="headOne">タイトル</h1>
+    <main>
+      <!-- button, a要素でのtoggle switchをするための定型文　暗記 -->
+      <button :class="{ active: flag }" @click="flag = !flag">button</button>
+      
+      <!-- template要素で複数の要素をグループ化する
+        v-if, v-forの中身が真なら表示させる用途 -->
+      <!-- レイアウトに注意する。marginが全く効かない。
+            wrapする際はtemplate要素の内側にする。 -->
+      <template v-if="visible">
+        <div class="vb-wrapper">
+          <h2>heading</h2>
+          <p>one line strings</p>
+          <p>two line strings</p>
+        </div>
+      </tmplate>
+      
+      <!-- 引数を指定しないので『conputed』でメソッドを定義する。 -->
+      <p class="openedNum">開いている数: {{ numOpen }}</p>
 
-    <ul>
-      <li>item1</li>
-      <li>item2</li>
-      <li>item3</li>
-    </ul>
+      <!-- アコーディオンメニューを実装する -->
 
-    <ul>
-      <li v-for="i in 3" :key="i" ref="list">item{{ i }}</li>
-    </ul>
+      <!-- v-showは、表示の切り替えに使う。値にfalseを与えると『display: none』になる。 -->
+      <!-- <dl class="langList">
+        <template v-for="value in langContents" :key="value.name">
+          <dt :class="{ active: value.isShow }">{{ value.name }}</dt>
+          <dd v-show="false" v-html="value.contents"></dd>
+        </template>  
+      </dl> -->
+
+      <!-- jsで『isShow』メソッドは定義してないけど、
+      langContentsのインスタンスをforEachで回して『value.isShow = false』というように
+      セッターしてやることができる。
+      そして、HTML側で、langContentsから取り出してくる一つ一つのインスタンスに
+      『isShow』メソッドを適用すると値は『偽』になり、『v-show』で非表示の状態を作ることができる。 -->
+
+      <!-- 『@click="value.isShow = !value.isShow"』はイディオム！　
+      トグルスイッチの書き方を暗記する。 -->
+
+      <!-- dtに『active: value.isShow』を:clasディレクティブで設置。
+      クラス『.active』は、『@click="value.isShow = !value.isShow"』の
+      トグルスイッチの動作に合わせて真偽値が入れ替わるのを利用して付け替えをする。 -->
+      <dl class="langList">
+        <template v-for="value in langContents" :key="value.name">
+          <dt :class="{ active: value.isShow }" @click="value.isShow = !value.isShow">{{ value.name }}</dt>
+          <dd v-show="value.isShow" v-html="value.contents"></dd>
+        </template>  
+      </dl>
+    </main>
   </div>
-</body>
-
 </html>

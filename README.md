@@ -1411,3 +1411,164 @@ const app = ({
 })
 Vue.createApp(app).mount('#app')
 ```
+
+## ドロップダウンメニューを作る
+
+```html
+<div id="app" class="app">
+  <main>
+    <!-- button, a要素でのtoggle switchをするための定型文　暗記 -->
+    <button :class="{ active: flag }" @click="flag = !flag">button</button>
+    
+    <!-- template要素で複数の要素をグループ化する
+      v-if, v-forの中身が真なら表示させる用途 -->
+    <!-- レイアウトに注意する。marginが全く効かない。
+          wrapする際はtemplate要素の内側にする。 -->
+    <template v-if="visible">
+      <div class="vb-wrapper">
+        <h2>heading</h2>
+        <p>one line strings</p>
+        <p>two line strings</p>
+      </div>
+    </tmplate>
+    
+    <!-- 引数を指定しないので『conputed』でメソッドを定義する。 -->
+    <p class="openedNum">開いている数: {{ numOpen }}</p>
+
+    <!-- アコーディオンメニューを実装する -->
+
+    <!-- v-showは、表示の切り替えに使う。値にfalseを与えると『display: none』になる。 -->
+    <!-- <dl class="langList">
+      <template v-for="value in langContents" :key="value.name">
+        <dt :class="{ active: value.isShow }">{{ value.name }}</dt>
+        <dd v-show="false" v-html="value.contents"></dd>
+      </template>  
+    </dl> -->
+
+    <!-- jsで『isShow』メソッドは定義してないけど、
+    langContentsのインスタンスをforEachで回して『value.isShow = false』というように
+    セッターしてやることができる。
+    そして、HTML側で、langContentsから取り出してくる一つ一つのインスタンスに
+    『isShow』メソッドを適用すると値は『偽』になり、『v-show』で非表示の状態を作ることができる。 -->
+
+    <!-- 『@click="value.isShow = !value.isShow"』はイディオム！　
+    トグルスイッチの書き方を暗記する。 -->
+
+    <!-- dtに『active: value.isShow』を:clasディレクティブで設置。
+    クラス『.active』は、『@click="value.isShow = !value.isShow"』の
+    トグルスイッチの動作に合わせて真偽値が入れ替わるのを利用して付け替えをする。 -->
+    <dl class="langList">
+      <template v-for="value in langContents" :key="value.name">
+        <dt :class="{ active: value.isShow }" @click="value.isShow = !value.isShow">{{ value.name }}</dt>
+        <dd v-show="value.isShow" v-html="value.contents"></dd>
+      </template>  
+    </dl>
+  </main>
+</div>
+```
+
+```js
+const app = ({
+  data() {
+    return {
+      flag: false,
+      visible: true,
+      langContents: [
+        {
+          name: 'HTML',
+          contents: 'HTMLの説明です。<br>改行のテスト。br>改行のテスト。',
+        },
+        {
+          name: 'CSS',
+          contents: 'CSSの説明です。<br>改行のテスト。br>改行のテスト。',
+        },
+        {
+          name: 'JavaScript',
+          contents: 'JavaScriptの説明です。<br>改行のテスト。br>改行のテスト。',
+        }
+      ]
+    }
+  },
+  computed: {
+    // 『reduce』
+    // forEachと同じでインスタンを回すメソッド
+    // アクティブになっているインスタンスの数をカウントするメソッド
+    numOpen() {
+      return this.langContents.reduce((count, item) => 
+      // 三項演算子でtrueだったら『count』へ『1』を足していく。
+      // オプションは初期値。
+        count + (item.isShow ? 1 : 0), 0)
+    }
+  },
+  created() {
+    this.langContents.forEach(element => {
+      element.isShow = false
+      // console.log(this.langContents)
+    })
+  }
+})
+Vue.createApp(app).mount('#app')
+```
+
+```scss
+@use "../forwards" as fw
+
+.app
+  width: min(700px, 100%)
+  margin: 0 auto
+  padding-top: 50px
+main
+
+  button
+    margin-bottom: 20px
+    padding: 10px
+    font-weight: 900
+    color: #fff
+    background-color: blue
+    border: unset
+    border-radius: 5px
+    transition: .2s
+    &.active
+      opacity: .6
+  .vb-wrapper
+    margin-bottom: 50px
+    h2
+      margin: 20px 0
+      font-size: 2rem
+      font-weight: 900
+      line-height: 1
+    p
+      margin-bottom: 20px
+      font-size: 1.2rem
+      font-weight: 700
+      letter-spacing: .1em
+  .openedNum
+    margin: 0 0 20px
+    font-size: 1.2rem
+    font-weight: 900
+  .langList
+    dt, dd
+      padding: 15px
+    dt
+      display: flex
+      justify-content: space-between
+      align-items: center
+      cursor: pointer
+      // 文字が選択できなくなる属性
+      user-select: none
+      &.active::after
+        rotate: 180deg
+      &::after
+        content: '\f0d7'
+        font-family: 'Font Awesome 6 Free'
+        font-weight: 900
+        transition: .3 s
+      $colors: 'orange', 'lightblue', 'yellow'
+      @each $col in $colors
+        $idx : index($colors, $col)
+        &:nth-of-type(#{ $idx })
+          background-color: #{ $col }
+    dd
+      line-height: 1.5
+      background-color: #eee
+```
